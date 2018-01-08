@@ -44,8 +44,42 @@ Object efficiency tables : which format (HEPDATA?)
 it would be interesting to see how Delphes performance looks without analysis-specific cards, since a lot of people (outside the “big” recasting groups) are using it that way.
 
 \subsection{How to validate the analyses}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/lhada_benchmarking_excersise.png}
+ \caption{Search reach for the $\mu \gamma {\not\!\!E}_{T}$ signal
+(as defined in the
+   text) for
+   300 fb$^{-1}$ integrated luminosity  at the LHC.
+}
+\label{search}
+\end{center}
+\end{figure}
 
-\subsection{Simulation results}
+
+\subsection{Analysis proposals}
+
+\subsubsection{arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV}
+
+Experimental cards –> Ben. The procedure for event generation is depicted multijet.pdf (Section 02), the three parameter_cards are given param_cards.tgz and the Pythia configuration files are py8_scripts.tgz
+Plot conditions: HEPMC (after jet clustering), HEPMC + cuts, HEPMC + Detector effects, HEPMC + Detector effects + cuts
+Plots: pT of 1j, 2j and 3j, and MET: range [0,1] TeV, 50 bins
+Plots: eta of 1j, 2j and 3j: range [-5,5], 20 bins
+Analysis cutflows: Tables 1-7 in http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2015-06/
+100K HepMC events with MG5_aMC LO, masses: gluino 1600, N1 0 –> Olivier+Nishita https://cernbox.cern.ch/index.php/s/3Ci4I2cgQmKwDXt
+Results: here
+?K HepMC events with MG5_aMC LO, masses: gluino 1100, N1 700 –> Olivier+Nishita
+Results: here
+LHADA implementation: https://github.com/lhada-hep/lhada/tree/master/analyses/ATLASSUSY1605.03814
+
+\subsubsection{arxiv:1704.03848 - Monophoton - ATLAS - 13 TeV}
+Cutflow: https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/EXOT-2016-32/
+
+\subsubsection{CMS-SUS-16-039 - 3 leptons + MET - CMS - 13 TeV} - (Now superseded by paper: http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-16-039/index.html)  (BDT with ~15 inputs; eff. 20-90%). Cutflows: http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/SUS-16-039/index.html Efficiencies: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SUSMoriond2017ObjectsEfficiency
+
+\subsubsection{arxiv:1706.04402 - 1 lepton + MET + Jets (>=1b) - CMS - 13 TeV} (topness variable?)
+
+\section{Results}
 
 \section*{CONCLUSIONS}
 
