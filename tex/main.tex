@@ -1,1 +1,59 @@
-\section{Recasting activities at LH2017}
+\documentclass[11pt]{cernrep}
+\usepackage{graphicx,epsfig}
+\bibliographystyle{lesHouches}
+\begin{document}
+
+
+\title{Recasting activities at LH2017}
+
+\author{L. Perrozzi$^1$, fabio.maltoni@uclouvain.be, sabine.kraml@gmail.com, gabriel.facini@cern.ch, D.Grellscheid@gmail.com, ssekmen@cern.ch, J.Butterworth@ucl.ac.uk, nishita.desai@umontpellier.fr, andy.buckley@cern.ch, fuks@lpthe.jussieu.fr, eric.conte@iphc.cnrs.fr, peter.richardson@durham.ac.uk, luca.perrozzi@cern.ch, olivier.mattelaer@uclouvain.be, Pasquale.Musella@cern.ch, andre.lessa@cern.ch, alexandra.oliveira@cern.ch, ursula.laa@lpsc.in2p3.fr, kristin.lohwasser@cern.ch, thrynova@mail.cern.ch, efe.yazgan@cern.ch, philippe.gras@cern.ch, sylvain@ift.unesp.br}
+\institute{
+$^1$IPA at ETH Zurich, Switzerland
+\\
+$^2$Tate Gallery of Fundamental Research,  Trunka
+}
+
+\maketitle
+
+\begin{abstract}
+We examine Recasting activities at LH2017.
+\end{abstract}
+
+\section{INTRODUCTION}
+\subsection{General Activities}
+\begin{itemize}
+\item Feasibility study of the implementation/portability of complicated MVA techniques (BDT, NN,…) into the analyses
+\item Improvement of results and recastability: how to provide correlations signal systematics, possibility of providing a few key observables unfolded.
+\item Comparison of between DELPHES results and simple object smearing.
+\item Trying out the use of particle-level measurements to constrain model models
+\end{itemize}
+
+\subsection{Formats}
+Object efficiency tables : which format (HEPDATA?)
+
+\subsection{Benchmarking/Comparisons}
+
+\begin{itemize}
+\item Implementation of analyses of increasing complexity in the Analysis Description Format (LHADA Proposal) and in (BSM) Rivet and their comparison.
+\item Choose an analysis of ATLAS or CMS which has cutflow and detector effects provided in some form, and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM/.
+\item Implement the same analysis in LHADA and then use the dedicated parsers to provide the analysis for the recasting codes.
+\item Reproduce the NP interpretation of the original paper (=validation implementation).
+\item Recast the analysis for an other new physics model and compare the results.
+\item Go to point one and choose a more complicated analysis…
+\end{itemize}
+it would be interesting to see how Delphes performance looks without analysis-specific cards, since a lot of people (outside the “big” recasting groups) are using it that way.
+
+\subsection{How to validate the analyses}
+
+\subsection{Simulation results}
+
+\section*{CONCLUSIONS}
+
+
+\section*{ACKNOWLEDGEMENTS}
+K. Slane would like to thank CERN and LAPTh for hospitality offered
+during which some of the work contained herein was performed.
+
+\bibliography{sample_bib}
+
+\end{document}
