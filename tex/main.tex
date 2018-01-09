@@ -6,21 +6,23 @@
 
 \title{Recasting activities at LH2017}
 
-\author{L. Perrozzi$^1$, fabio.maltoni@uclouvain.be, sabine.kraml@gmail.com, gabriel.facini@cern.ch, D.Grellscheid@gmail.com, ssekmen@cern.ch, J.Butterworth@ucl.ac.uk, nishita.desai@umontpellier.fr, andy.buckley@cern.ch, fuks@lpthe.jussieu.fr, eric.conte@iphc.cnrs.fr, peter.richardson@durham.ac.uk, luca.perrozzi@cern.ch, olivier.mattelaer@uclouvain.be, Pasquale.Musella@cern.ch, andre.lessa@cern.ch, alexandra.oliveira@cern.ch, ursula.laa@lpsc.in2p3.fr, kristin.lohwasser@cern.ch, thrynova@mail.cern.ch, efe.yazgan@cern.ch, philippe.gras@cern.ch, sylvain@ift.unesp.br}
+\author{L. Perrozzi$^1$, Fabio Maltoni, Sabine Kraml, Gabriel Facini, David Grellscheid, Sezen Sekmen, Johnatan Butterworth, Nishita Desai, Andy Buckley, Benjamin Fuks, Eric Conte, Peter Richardson, Olivier Mattelaer, Pasquale Musella, Alexandra Oliveira Carvalho, Ursula Laa, Kristin Lohwasser, Thrynova, Efe Yazgan, Philippe Gras, Sylvain}
 \institute{
 $^1$IPA at ETH Zurich, Switzerland
 \\
-$^2$Tate Gallery of Fundamental Research,  Trunka
+$^2$...
 }
 
 \maketitle
 
 \begin{abstract}
-We examine Recasting activities at LH2017.
+Recasting activities at Les Houches 2017.
 \end{abstract}
 
 \section{INTRODUCTION}
+
 \subsection{General Activities}
+
 \begin{itemize}
 \item Feasibility study of the implementation/portability of complicated MVA techniques (BDT, NN,…) into the analyses
 \item Improvement of results and recastability: how to provide correlations signal systematics, possibility of providing a few key observables unfolded.
@@ -35,7 +37,7 @@ Object efficiency tables : which format (HEPDATA?)
 
 \begin{itemize}
 \item Implementation of analyses of increasing complexity in the Analysis Description Format (LHADA Proposal) and in (BSM) Rivet and their comparison.
-\item Choose an analysis of ATLAS or CMS which has cutflow and detector effects provided in some form, and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM/.
+\item Choose an analysis of ATLAS or CMS which has cutflow and detector effects provided in some form, and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM.
 \item Implement the same analysis in LHADA and then use the dedicated parsers to provide the analysis for the recasting codes.
 \item Reproduce the NP interpretation of the original paper (=validation implementation).
 \item Recast the analysis for an other new physics model and compare the results.
@@ -57,29 +59,108 @@ it would be interesting to see how Delphes performance looks without analysis-sp
 \end{figure}
 
 
-\subsection{Analysis proposals}
+\subsection{The analysis frameworks}
+\subsubsection{ATOM}
+\subsubsection{CheckMate}
+\subsubsection{MadAnalysis}
+\subsubsection{Rivet}
+
+\subsubsection{Generic Analysis Description Proposal}
+
+\subsection{Analysis proposals and results}
 
 \subsubsection{arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV}
 
-Experimental cards –> Ben. The procedure for event generation is depicted multijet.pdf (Section 02), the three parameter_cards are given param_cards.tgz and the Pythia configuration files are py8_scripts.tgz
-Plot conditions: HEPMC (after jet clustering), HEPMC + cuts, HEPMC + Detector effects, HEPMC + Detector effects + cuts
-Plots: pT of 1j, 2j and 3j, and MET: range [0,1] TeV, 50 bins
-Plots: eta of 1j, 2j and 3j: range [-5,5], 20 bins
-Analysis cutflows: Tables 1-7 in http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SUSY-2015-06/
-100K HepMC events with MG5_aMC LO, masses: gluino 1600, N1 0 –> Olivier+Nishita https://cernbox.cern.ch/index.php/s/3Ci4I2cgQmKwDXt
-Results: here
-?K HepMC events with MG5_aMC LO, masses: gluino 1100, N1 700 –> Olivier+Nishita
-Results: here
-LHADA implementation: https://github.com/lhada-hep/lhada/tree/master/analyses/ATLASSUSY1605.03814
+Results are reported in table~\ref{tab:1605.03814}.
+
+\begin{table*}[htbp]
+\tiny
+	\centering
+		\begin{tabular}{ | l || l | l | l || l | l | l || l | }
+\hline
+% Rivet, MadAnalysis 5 and CheckMATE2 benchmarking results & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+% arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+% Gluino mass 1600 - N1 mass 0 & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+% Rivet default (with efficiencies and smearing); MadAnalysis5 default; CheckMATE2 default & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+ % & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+                  &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5} &   {\bf CheckMATE}   \\ \hline
+
+Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff &   tot.eff   \\ \hline \hline
+{\bf 2jl cut-flow}                  & 31250 & 1 & - & 31250 & 1 & - & \   \\ \hline
+Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & \   \\ \hline
+Njet              & 28592 & 0.91 & 1 & 28625 & 0.92 & 1 & \   \\ \hline
+Dphi\_min(j,MET)   & 17297 & 0.55 & 0.6 & 17301 & 0.55 & 0.6 & \   \\ \hline
+pT2               & 17067 & 0.55 & 0.99 & 17042 & 0.55 & 0.99 & \   \\ \hline
+MET/sqrtHT        & 8900 & 0.28 & 0.52 & 8898 & 0.28 & 0.52 & \   \\ \hline
+m\_eff(incl)       & 8896 & 0.28 & 1 & 8897 & 0.28 & 1 & \   \\ \hline
+\hline
+{\bf 2jm cut-flow} & 31250 & 1 & - & 32150 & 1 & - & 1  \\ \hline
+Pre-sel+MET+pT1   & 28472 & 0.91 & 0.91 & 28478 & 0.91 & 0.91 & 0.91  \\ \hline
+Njet              & 28472 & 0.91 & 1 & 28477 & 0.91 & 1 & 0.91  \\ \hline
+Dphi\_min(j,MET)   & 22950 & 0.73 & 0.81 & 22889 & 0.73 & 0.8 & 0.73  \\ \hline
+pT2               & 22950 & 0.73 & 1 & 22889 & 0.73 & 1 & 0.73  \\ \hline
+MET/sqrtHT        & 10730 & 0.34 & 0.47 & 10710 & 0.34 & 0.47 & 0.33  \\ \hline
+m\_eff(incl)       & 10630 & 0.34 & 0.99 & 10609 & 0.34 & 0.99 & 0.32  \\ \hline
+\hline
+{\bf 2jt cut-flow} & 31250 & 1 & - & 31250 & 1 & - & \   \\ \hline
+Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & \   \\ \hline
+Njet              & 28592 & 0.91 & 1 & 28625 & 0.92 & 1 & \   \\ \hline
+Dphi\_min(j,MET)   & 17297 & 0.55 & 0.6 & 17301 & 0.55 & 0.6 & \   \\ \hline
+pT2               & 17067 & 0.55 & 0.99 & 17042 & 0.55 & 0.99 & \   \\ \hline
+MET/sqrtHT        & 5083 & 0.16 & 0.3 & 5098 & 0.16 & 0.3 & \   \\ \hline
+Pass m\_eff(incl)  & 4861 & 0.16 & 0.96 & 4889 & 0.16 & 0.96 & \   \\ \hline
+\hline
+{\bf 4jt cut-flow} & 31250 & 1 & - & 31250 & 1 & - & 1  \\ \hline
+Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & 0.91  \\ \hline
+Njet              & 27322 & 0.87 & 0.96 & 27128 & 0.87 & 0.95 & 0.87  \\ \hline
+Dphi\_min(j,MET)   & 18929 & 0.61 & 0.69 & 18829 & 0.6 & 0.69 & 0.6  \\ \hline
+pT2               & 18715 & 0.6 & 0.99 & 18825 & 0.6 & 1 &     --       \\ \hline
+pT4               & 16610 & 0.53 & 0.89 & 16430 & 0.53 & 0.87 & 0.52  \\ \hline
+Aplanarity        & 11849 & 0.38 & 0.71 & 11395 & 0.36 & 0.69 & 0.36  \\ \hline
+MET/m\_eff(Nj)     & 8334 & 0.27 & 0.7 & 7971 & 0.26 & 0.7 & 0.25  \\ \hline
+m\_eff(incl)       & 7201 & 0.23 & 0.86 & 6972 & 0.22 & 0.87 & 0.21  \\ \hline
+\hline
+{\bf 5j cut-flow} & 31250 & 1 & - & 31250 & 1 & - & 1 \\ \hline
+Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & 0.91 \\ \hline
+Njet              & 21234 & 0.68 & 0.74 & 21185 & 0.68 & 0.74 & 0.68 \\ \hline
+Dphi\_min(j,MET)   & 14294 & 0.46 & 0.67 & 14292 & 0.46 & 0.67 & 0.45 \\ \hline
+pT2               & 14146 & 0.45 & 0.99 & 14289 & 0.46 & 1 &    --       \\ \hline
+pT4               & 13229 & 0.42 & 0.94 & 13228 & 0.42 & 0.93 & 0.42 \\ \hline
+Aplanarity        & 9836 & 0.31 & 0.74 & 9576 & 0.31 & 0.72 & 0.3 \\ \hline
+MET/m\_eff(Nj)     & 4643 & 0.15 & 0.47 & 4506 & 0.14 & 0.47 & 0.13 \\ \hline
+m\_eff(incl)       & 4620 & 0.15 & 1 & 4476 & 0.14 & 0.99 & 0.13 \\ \hline
+\hline
+{\bf 6jm cut-flow} & 31250 & 1 & - & 31250 & 1 & - & 1  \\ \hline
+Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & 0.91  \\ \hline
+Njet              & 13235 & 0.42 & 0.46 & 13236 & 0.42 & 0.46 & 0.41  \\ \hline
+Dphi\_min(j,MET)   & 8520 & 0.27 & 0.64 & 8553 & 0.27 & 0.65 & 0.26  \\ \hline
+pT2               & 8436 & 0.27 & 0.99 & 8551 & 0.27 & 1 &    --        \\ \hline
+pT4               & 8135 & 0.26 & 0.96 & 8217 & 0.26 & 0.96 & 0.25  \\ \hline
+Aplanarity        & 6365 & 0.2 & 0.78 & 6307 & 0.2 & 0.77 & 0.19  \\ \hline
+MET/m\_eff(Nj)     & 2675 & 0.09 & 0.42 & 2665 & 0.09 & 0.42 & 0.08  \\ \hline
+m\_eff(incl)       & 2670 & 0.09 & 1 & 2656 & 0.08 & 1 & 0.08  \\ \hline
+\hline
+{\bf 6jt cut-flow} & 31250 & 1 & - & 31250 & 1 & - & \   \\ \hline
+Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & \   \\ \hline
+Njet              & 13235 & 0.42 & 0.46 & 13236 & 0.42 & 0.46 & \   \\ \hline
+Dphi\_min(j,MET)   & 8520 & 0.27 & 0.64 & 8553 & 0.27 & 0.65 & \   \\ \hline
+pT2               & 8436 & 0.27 & 0.99 & 8551 & 0.27 & 1 & \   \\ \hline
+pT4               & 8135 & 0.26 & 0.96 & 8217 & 0.26 & 0.96 & \   \\ \hline
+Aplanarity        & 6365 & 0.2 & 0.78 & 6307 & 0.2 & 0.77 & \   \\ \hline
+MET/m\_eff(Nj)     & 3900 & 0.12 & 0.61 & 3839 & 0.12 & 0.61 & \   \\ \hline
+m\_eff(incl)       & 3715 & 0.12 & 0.95 & 3672 & 0.12 & 0.96 & \   \\ \hline
+			
+		\end{tabular}
+	\caption{1605.03814 cut flow}
+	\label{tab:1605.03814}
+\end{table*}
 
 \subsubsection{arxiv:1704.03848 - Monophoton - ATLAS - 13 TeV}
-Cutflow: https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/EXOT-2016-32/
 
-\subsubsection{CMS-SUS-16-039 - 3 leptons + MET - CMS - 13 TeV} - (Now superseded by paper: http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-16-039/index.html)  (BDT with ~15 inputs; eff. 20-90%). Cutflows: http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/SUS-16-039/index.html Efficiencies: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SUSMoriond2017ObjectsEfficiency
+\subsubsection{CMS-SUS-16-039 - 3 leptons + MET - CMS - 13 TeV}
+
 
 \subsubsection{arxiv:1706.04402 - 1 lepton + MET + Jets (>=1b) - CMS - 13 TeV} (topness variable?)
-
-\section{Results}
 
 \section*{CONCLUSIONS}
 
