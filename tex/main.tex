@@ -143,13 +143,19 @@ it would be interesting to see how Delphes performance looks without analysis-sp
 \section{The analysis frameworks and tools}
 In this section we describe the analysis frameworks and tools used for the comparison and benchmarking
 \subsection{ATOM}
-Brief description of ATOM
+Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
+
 \subsection{CheckMate}
-Brief description of CheckMate
+CheckMATE takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is "excluded" or "allowed" after performing a detector simulation and testing various implemented analyses. The embedded AnalysisManager makes it easy to add current and prospective future LHC results from ATLAS and CMS which have not yet been implemented. Detector effects are considered by Delphes extended by tuned efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 adds the possibility of using Pythia8 to generate SUSY events on-the-fly or to shower provided .lhe files for any model. Currently, the collaboration is working on an extension to enable the on-the-fly simulation of events for any model.
+
+
 \subsection{MadAnalysis}
-Brief description of MadAnalysis
+MadAnalysis 5 is a generic user-friendly framework for phenomenological investigations at particle colliders, i.e. to perform physics analyses of Monte Carlo event files. Its Public Analysis Database (PAD)comprises a growing collection of LHC analyses, which have been implemented in the MadAnalysis 5 framework for the purpose of recasting. Delphes3 is used for the detector simulation. For each implemented analysis, a detailed validation note is provided. The PAD follows an open-source policy; contributed codes are published and citable via Inspire. The framework is currently being extended to provide a full recast chain, from Madgraph to limit setting.
+
 \subsection{Rivet}
-Brief description of Rivet
+Originally developed as a toolkit for the validation of Monte Carlo event generators, Rivet (Robust Independent Validation of Experiment and Theory) has become a standard for documenting [unfolded] SM measurements. The LHC experiment top and Higgs groups are also increasingly providing Rivet routines for their analyses. Rivet analyses are written in a user-friendly subset of C++11, and are picked up at runtime as "plugin libraries"; they can be executed on an event stream either through a Python script interface, or by direct code interfacing to a C++ API.
+The original SM-focused requirement of unfolded observables made Rivet inappropriate for BSM searches (other than those using just jets and MET) until the addition of detector-smearing/efficiency machinery in Rivet 2.5.0. This detector machinery provides equivalent efficiency effects to a Delphes-type simulation, and imitates the less important kinematic smearing of physics objects to within a few percent. A novel feature is that the Rivet detector implementation allows jet algorithms, lepton and b-tagging operating points, full-detailed object isolation algorithms, and resolutions/efficiencies to be specific to each analysis's procedure and event-selection. This allows more accurate detector modelling and more robust analysis preservation than "global" detector simulations, hence addresses some experiment concerns re. requests for "official fast-sim" tools. The aim is to encourage Rivet code provision direct from BSM data analysers, as is already the case for SM results: additional tools to assist BSM analysis implementation are being added on request.
+
 \subsection{Generic Analysis Description Proposal}
 Brief description of the Generic Analysis Description Proposal
 
