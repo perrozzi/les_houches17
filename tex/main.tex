@@ -7,11 +7,16 @@
 
 \title{Recasting activities at LH2017}
 
-\author{L. Perrozzi$^1$, Fabio Maltoni, Sabine Kraml, Gabriel Facini, David Grellscheid, Sezen Sekmen, Johnatan Butterworth, Nishita Desai, Andy Buckley, Benjamin Fuks, Eric Conte, Peter Richardson, Olivier Mattelaer, Pasquale Musella, Alexandra Oliveira Carvalho, Ursula Laa, Kristin Lohwasser, Thrynova, Efe Yazgan, Philippe Gras, Sylvain}
+\author{L.~Perrozzi$^1$, Fabio~Maltoni, Sabine~Kraml, Gabriel~Facini, David~Grellscheid, Sezen~Sekmen,
+  Jonathan~Butterworth, Nishita~Desai, Andy~Buckley$^{AB}$, Benjamin~Fuks, Eric~Conte, Peter~Richardson,
+  Olivier~Mattelaer, Pasquale~Musella, Alexandra~Oliveira~Carvalho, Ursula~Laa, Kristin~Lohwasser,
+  ???~Thrynova, Efe~Yazgan, Philippe~Gras, Sylvain~Fichet}
+
 \institute{
-$^1$IPA at ETH Zurich, Switzerland
+$^1$ IPA at ETH Zurich, Switzerland
 \\
-$^2$...
+$^2$ \dots\\
+$^{AB}$ School of Physics \& Astronomy, University of Glasgow, UK
 }
 
 \maketitle
@@ -24,8 +29,8 @@ Recasting activities at Les Houches 2017.
 
 Searches for new physics constitute a basic ingredient of the LHC physics program.
 Their variety and large number pose severe challenges to both the experimental and theory communities.
-In fact, hundreds of searches are performed by different collaborations, a wide variety of final states is used, 
-new ideas on how to probe new models and non-trivial signatures and improve the sensitivity of existing searches constantly emerge. 
+In fact, hundreds of searches are performed by different collaborations, a wide variety of final states is used,
+new ideas on how to probe new models and non-trivial signatures and improve the sensitivity of existing searches constantly emerge.
 The ultimate goal of this effort is to discover new physics if such
 exists within the range of the LHC, and to test the widest possible range of hypothetical new physics models.
 
@@ -35,26 +40,26 @@ such as object multiplicities, transverse momenta, transverse masses, etc.
 An analysis can be very complex and feature many intricate definitions of object and event
 variables, some of which cannot be expressed in closed algebraic form and must be defined
 algorithmically. This complexity renders the task of visualizing, understanding, developing and
-interpreting analyses increasingly challenging.  
+interpreting analyses increasingly challenging.
 
 One obvious way to cope with the complexity is to devise ways to enforce absolute clarity in the description of analyses.
 A discussion was started in the Les Houches PhysTeV workshop in 2011, and continued
 thereafter within a wider group of LHC physicists, in order to determine what information is
-crucial for describing an analysis. The outcome of this discussion was reported in the 
+crucial for describing an analysis. The outcome of this discussion was reported in the
 \"Recommendations for Presentation of LHC Results\" [524,525], and has been embraced by many LHC physicists.
 
-The current practice in our community is to write an analysis in non-public computer codes, 
+The current practice in our community is to write an analysis in non-public computer codes,
 which often rely on event objects specific to the experimental collaboration in question,
 and then make public a description of the analysis via journal publications or other documents.
 
-These efforts, which merit our great appreciation, 
-have significantly increased the scientific value of many important experimental results. 
+These efforts, which merit our great appreciation,
+have significantly increased the scientific value of many important experimental results.
 
 There is significant precedent for the effectiveness of such community standards. Several
-accords have been established to standardize the communication of physics modeling information, 
+accords have been established to standardize the communication of physics modeling information,
 notably the Les Houches Event Accord (LHE) [529, 530] and the SUSY Les Houches Accord (SLHA) [190, 531].
 These, respectively, standardize the description of hard-process
-particles in simulated collision events, and the details of all the parameters that define a BSM model point.  
+particles in simulated collision events, and the details of all the parameters that define a BSM model point.
 Both accords are widely used in high-energy physics and have greatly helped to
 simplify and make more efficient the communication between physicists.
 In this report, we underscore the need for a standardized format — an “analysis description
@@ -62,8 +67,8 @@ accord” — capable of describing the contents of an analysis in an unambiguou
 be fully exploited by the whole particle physics community.  The accord must be capable of
 describing all object and event selections, as well as quantities such as efficiencies, analytic and
 algorithmic observables, and advanced multivariate selections.
-In the Les Houches PhysTeV workshop in 2015, a dedicated discussion has been initiated 
-on how such an accord can be realized. 
+In the Les Houches PhysTeV workshop in 2015, a dedicated discussion has been initiated
+on how such an accord can be realized.
 The important motivations and use-cases for a standard analysis description accord were envisaged as:
 \begin{itemize}
   \item Analysis preservation
@@ -162,7 +167,7 @@ Brief description of the Generic Analysis Description Proposal
 \section{Analyses benchmarking, comparisons and results}
 
 \subsection{arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV}
-Brief description of the ATLAS analysis Jets+MET at 13 TeV (arxiv:1605.03814). 
+Brief description of the ATLAS analysis Jets+MET at 13 TeV (arxiv:1605.03814).
 Results are reported in table~\ref{tab:1605.03814}.
 
 \begin{table*}[htbp]
@@ -241,7 +246,7 @@ pT4               & 8135 & 0.26 & 0.96 & 8217 & 0.26 & 0.96 & \   \\ \hline
 Aplanarity        & 6365 & 0.2 & 0.78 & 6307 & 0.2 & 0.77 & \   \\ \hline
 MET/m\_eff(Nj)     & 3900 & 0.12 & 0.61 & 3839 & 0.12 & 0.61 & \   \\ \hline
 m\_eff(incl)       & 3715 & 0.12 & 0.95 & 3672 & 0.12 & 0.96 & \   \\ \hline
-			
+
 		\end{tabular}
 	\caption{1605.03814 cut flow}
 	\label{tab:1605.03814}
