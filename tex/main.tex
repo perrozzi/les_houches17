@@ -22,7 +22,9 @@ $^{AB}$ School of Physics \& Astronomy, University of Glasgow, UK
 \maketitle
 
 \begin{abstract}
-Recasting activities at Les Houches 2017.
+The scope of this report, therefore, is to document the advancements obtained so far on the recasting
+activities and attempt a first benchmark to compare different tools to reproduce several ATLAS and
+CMS analysis results.
 \end{abstract}
 
 \section{INTRODUCTION}
@@ -147,8 +149,8 @@ it would be interesting to see how Delphes performance looks without analysis-sp
 
 \section{The analysis frameworks and tools}
 In this section we describe the analysis frameworks and tools used for the comparison and benchmarking
-\subsection{ATOM}
-Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
+% \subsection{ATOM}
+% Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
 
 \subsection{CheckMate}
 CheckMATE takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is "excluded" or "allowed" after performing a detector simulation and testing various implemented analyses. The embedded AnalysisManager makes it easy to add current and prospective future LHC results from ATLAS and CMS which have not yet been implemented. Detector effects are considered by Delphes extended by tuned efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 adds the possibility of using Pythia8 to generate SUSY events on-the-fly or to shower provided .lhe files for any model. Currently, the collaboration is working on an extension to enable the on-the-fly simulation of events for any model.
@@ -254,6 +256,37 @@ m\_eff(incl)       & 3715 & 0.12 & 0.95 & 3672 & 0.12 & 0.96 & \   \\ \hline
 
 \subsection{arxiv:1704.03848 - Monophoton - ATLAS - 13 TeV}
 Brief description of the ATLAS analysis Monophoton at 13 TeV (arxiv:1704.03848).
+Results are reported in table~\ref{tab:1704.03848}.
+
+\begin{table*}[htbp]
+\tiny
+	\centering
+		\begin{tabular}{ | l || l | l | l || l | l | l | }
+\hline
+% Rivet, MadAnalysis 5 and CheckMATE2 benchmarking results & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+% arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+% Gluino mass 1600 - N1 mass 0 & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+% Rivet default (with efficiencies and smearing); MadAnalysis5 default; CheckMATE2 default & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+ % & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
+                  &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5}    \\ \hline
+
+Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff    \\ \hline \hline
+
+Initial                    &  	1198	& 1		  & -     & 1198	& 1	 &    -      \\ \hline
+ETmiss $>$ 150 GeV           &   	798.3	& 0.67	& 0.67	& 736	& 0.61 &  0.61     \\ \hline
+Photon w/ ET $>$ 150 GeV     &   	703.5	& 0.59	& 0.88	& 700	& 0.58 &  0.95     \\ \hline
+Pass Tight photon          &   	598.1	& 0.50	& 0.85	& 658	& 0.55 & 	0.94     \\ \hline
+Pass Isolated photon       &   	598.1	& 0.50	& 1.00	& 620	& 0.52 & 	0.94     \\ \hline
+Pass $\delta\phi$(gamma,MET) $>$ 0.4 &   	597.5	& 0.50	& 1.00	& 596	& 0.50 & 	0.96     \\ \hline
+Pass MET/sqrt(SET) $>$ 8.5   &   	538.2	& 0.45	& 0.90	& -	  &  -   &     	     \\ \hline
+Pass Jet veto              &   	476.8	& 0.40	& 0.89	& 461	& 0.38 & 	0.77     \\ \hline
+Pass Lepton veto           &   	475.5	& 0.40	& 1.00	& 460	& 0.38 & 	1.00     \\ \hline
+
+		\end{tabular}
+	\caption{1704.03848 cut flow}
+	\label{tab:1704.03848}
+\end{table*}
+
 
 \subsection{CMS-SUS-16-039 - 3 leptons + MET - CMS - 13 TeV}
 Brief description of the CMS analysis 3 leptons + MET at 13 TeV (CMS-SUS-16-039).
