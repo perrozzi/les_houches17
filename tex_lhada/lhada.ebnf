@@ -1,0 +1,147 @@
+(* Definition of the LHADA file structure *)
+
+lhada file = info block, {function block}, {object block}, {cut block}, {table block}
+
+
+(* Syntax of an info block *)
+
+info block = "info analysis", EOL,
+             {space, analysis info}
+
+analysis info = analysis info key, text
+
+analysis info key = "id" | "doc" | "experiment" | "publication" | "sqrtS" | "lumi" |
+                     "arXiv" | "hepdata"
+
+
+(* Syntax of a function block *)
+
+function block = "function", space, function name, EOL,
+                 {space}, "#", {char}, EOL,
+		 {arg statement}
+		 indent, "code", space, extented file path, EOL
+
+function name = identifier
+arg statement = indent, "arg", space, arg name, {space, arg name}, EOL
+arg name = identifier
+
+(* Syntax of an object block *)
+
+object block = internal objecct | external object
+
+internal object block = object, space, object name, EOL,
+                        indent, "take", space, internal input, EOL,
+	                {object optional statement}
+
+object optional statement = apply statement | cut statement
+
+internal input = "Particles" |  defined object
+
+defined object = identifier (* the object must be defined in an object block in
+                               the preceding text *)
+
+external object block = object, space, object name, EOL,
+                        indent, "take", space, "external", EOL,
+                        "uid", uid
+
+uid = identifier
+
+apply statement = indent, "apply", space, function call
+
+cut statement  = indent, "cut", expression
+
+(* Syntax of a cut block *)
+cut block = "cut",  space, cut name, EOL
+             {"select", space, expression, EOL}
+
+cut name = identifier
+
+(* Syntax of a table block*)
+
+table block = "table", space, table name, EOL,
+               indent, "type", space, table type, EOL,
+               indent, "columns", {space, column name}, EOL (* header *)
+	       {indent, "entry", {space, cell content}, EOL} (* lines *)
+	       (* The number of fields in table lines must match
+	          with the number of columns defined in the header*)
+               [indent, "hepdata", space, extended file path]
+
+table name = identifier
+table type = "events" | "limits" | "cutflow" | "corr" | "bkg"
+cell content = (char - space}  
+
+(* Syntax for a function call *)
+
+function call =  defined function, "(", arg list, ")"
+defined function = function name (* The function must be defined
+                                    with a function block before in
+				    the file *)
+arg list = "" | arg, { ", ", arg}
+arg = arg name, {space}, "=", {space}, expression, { ",", expression }
+
+
+(* Miscellaneous *)
+
+extended file path = ? http, https, or ftp url as defined in RFC 2386 ? |
+                     ? unix-like path name ?
+
+
+(* Syntax of a mathematical expression *)
+(* Note: we have not expressed the operator precedence rules within the grammar below *)
+(* The same precedence as the one of c/c++ language applied *)
+
+expression = primary expression, {primary expression}
+
+primary expression = real number | variable | unary operation | binary operation |
+                     function call | "(", expression, ")"
+
+variable = identifier
+
+operator = "+" | "-" | "*" | "/" | "**" | "^" | "and" | "or" | "&&" | "||" | "<" | ">" |
+           "<=" | ">=" | "!="
+unary operator = "-" | "not" | "!"
+unary operation = unary operator, ( real number | variable | unary operation |
+                                    function call | "(" expression ")" )
+binary operation = expression, binary operator, expression
+
+(* Syntax of identifiers*)
+identifier = ( letter | "_" ), {letter | "_" | digit }
+
+(* Definition of character sets *)
+
+letter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" |
+         "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" |
+	 "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" |
+	 "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+(* symbols include all 7-bit ASCII characters other than letters, digits and spaces *)
+symbol =  "!" | """ | "#" | "$" | "%" | "&" | "'" | "(" | ")" | "*" | "+" | "," | "-" |
+          "." | "/" | ":" | ";" | "<" | "=" | ">" | "?" | "@" | "[" | "\" | "]" | "^" |
+	  "_" | "`" | "{" | "|" | "}" | "~"
+
+space char = " " | (? ISO 6429 character Horizontal tab ?)
+
+char = letter | digit | symbol | space char
+
+sign = "+" | "-"
+
+exp10 sign = "e" | "E"
+
+EOL = ( ?  ISO 6429 character Line Feed ?)
+
+(* Definition of numbers *)
+
+natural number = digit, {digit}
+
+integer = [sign], ( digit - "0" ) , { digit }
+
+real number = decimal, { exp10 sign, integer }
+
+decimal = ( ( integer, [ "." ] ) | ( { integer }, ".", natural number) )
+
+(* Definition of space *)
+
+space = {space char}
+indent = space (* Alias used for a space at beginning of a line *)
