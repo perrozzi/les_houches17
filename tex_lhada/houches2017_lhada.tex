@@ -1,0 +1,161 @@
+\documentclass[11pt]{cernrep}
+\usepackage{graphicx,epsfig}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{fancyvrb}
+\bibliographystyle{lesHouches}
+\begin{document}
+
+
+\author{Philippe~Gras$^{1}$, Sezen~Sekmen$^{2}$}
+
+\institute{
+  $^{1}$ IRFU, CEA, Universit\'e Paris-Saclay, Gif-sur-Yvette\\
+  $^{2}$ Kyungpook Univ., Daegu
+}
+
+
+\title{Analysis description for LHC result reinterpretations}
+
+\maketitle
+
+\abstract{{\sc Lhada} is a language to describe LHC analysis which has a wide range of applications. In this work, this language is investigated for its usage in the context of LHC result reinterpretation. It would be employed to describe in an unambiguous and concise manner a data analysis including all the details needed for a reinterpretation of the result in the context of a physics theory not considered in the original analysis. A specialisation of the language dedicated to reinterpretation is introduced. The specialisation defines extra syntax rules and constitutes a subset of the language. Three different analyses used as benchmarks are described with this language. Automatic generation of code reproducing the analysis on Monte-Carlo samples for the purpose of result reinterpretation is investigated. We demonstrate that programs that generates code to be used in a result reinterpretation tool can be easily developed and a prototype is presented. In addition, the generated code can be used to validate the accuracy of the analysis description.}
+
+\section{Introduction}
+
+The need for a standard to describe analyses of LHC data in an unambiguous way together with the definition of its requirements has been studied at the 2015 session of Les Houches PhysTeV workshop~\cite{Brooijmans:2016vro}. The study includes a proposal for this standard. In this present work, we are investigating this proposal, called {\sc Lhada} in the following, in the context of analysis reinterpretation. Three questions are addressed: the coverage of the language, that is its ability to implement a large spectrum of analyses, the completeness of the analysis description, and the capacity to validate this description. The first question is addressed by implementing the description of example analyses with different levels of complexity. The two others were addressed by developing a machine interpreter [editor's note: to be change to plural if the contribution from the second interpreter is included]. The interpreter generates c$++$ code that reproduces the analysis on Monte-Carlo generator-level samples (in the {\sc HepMC} format~\cite{Dobbs:2001ck}) using the Rivet~\cite{Buckley:2010ar} framework. The code is meant to be used for result reinterpretation. It can also be used to validate an analysis description by reproducing reference numbers provided by the analysis authors. In particular the cut flow, that is the acceptances of the subsequent selections (the ``cuts'') of the analysis, is well suited for such validation~\cite{Kraml:2012sg}. The completeness of the description is validated at the same time.
+
+\section{Describing the description language}\label{sec:desc}
+
+Machine interpretation of the analysis descriptions requires a precise specification of the language. While the level of specification given in Ref.~\cite{Brooijmans:2016vro} is well suited for human interpretation, implementing a parser that support all its flexible is a difficult task. Unnecessary software complexity is required to handle all possible ways to describe the analyses and it is difficult to anticipate all possible cases allowed by the language. In this section we refine these specifications for the purpose of machine interpretation in the context of result reinterpretation. The resulting specifications, we will call {\sc Lhada}17, can be seen as a subset of the {\sc Lhada} language.
+
+The Extended Backus-Naur Form~\cite{bib:ebnf,bib:ebnf-wiki} (EBNF) notation has been used to specify the syntax and grammar of {\sc Lhada}17. The syntax is given in Appendix~\ref{app:ebnf}. The following rules which have not been included in the EBNF syntax to simplify the notation apply:
+\begin{itemize}
+\item A hash sign (\#) can be used to include comments in the {\sc Lhada} files: all characters of a line starting from a hash sign are comments and ignored for the interpretation based on the EBNF description.
+\item If the last non-space character of a line is a backslash ($\backslash$), then the line is merged with the following line before being interpreted according to the EBNF description.
+\item An entity ({\tt function}, {\tt object}  or {\tt cut}) should be declared before being used. For instance if a function is used in a ``cut'' definition, the corresponding {\tt function} block should appear before the {\tt cut} line. This rule is meant to simplify the parsing and also to avoid circular definitions. 
+\end{itemize}
+
+A specificity of {\sc Lhada} is the usage of programming languages to describe algorithms, via the {\sc Lhada} {\tt functions} while the main structure of the analysis is described with the dedicated language. A reference implementation of the algorithm is provided in a ``commonly used'' programming language. The implementation is given in a code source file, which can group implementations of different {\sc Lhada} {\tt functions} and can be shipped along with the {\sc Lhada} description file or provided as an http link.  In order to ease machine interpretation {\sc Lhada}17 includes the following restrictions for the reference {\tt function} implementations.
+
+\begin{itemize}
+\item the implementation is written in c$++$11~\cite{bib:c++11};
+\item the implementation must depend only on the code provided in the file and libraries from the restricted set defined below; the file should be compilable with c$++$11 compliant compilers.
+\item the allowed types for the function parameters are: {\tt int}, {\tt float}, {\tt double}, {\tt std::string}, {\tt LHADAParticle}, and {\tt FourMomentum}. Parameters are passed by copy (no modifier) or by constant reference (with {\tt const \&} modifier, like {\tt const LHADAParticle\&}); this rules exclude the use of a templated function; function templates are allowed for auxiliary functions; 
+\item {\tt \#include} statements can be used to include header files from the allowed libraries;
+\item the file, where the functions is defined should be compilable with c$++$11 compliant compilers;
+\item self-contained function are encouraged but not mandatory; by self contained we mean that the file is compilable with c$++$11 compliant compilers after having removed all code except the function and the {\tt \#include} that precedes it;
+\item the function can use the random object to draw pseudo-random numbers, whose scope is global to all functions and which provides the methods described in Table~\ref{tab:rand}; 
+\end{itemize}
+
+The {\tt LHADAParticle} and {\tt Momentum} types are two classes which provides the methods respectively described in Tables~\ref{tab:part} and \ref{tab:mom}. The restricted set of libraries includes the libraries that comes with the c$++$ standard ({\tt std} libraries) and a common library provided in the {\sc Lhada} repository. The header file coming with the latest library will be callded {\tt lhadatools-vXX.h} where {\tt XX} is a string specifying the library version. The set of libraries can evolve without requiring a revision of the {\sc Lhada17} language standard and will be defined by a list stored in the {\sc Lhada} repository.
+
+\begin{table}
+  \caption{Definition of the LHADAParticle type. \label{tab:part}}
+  \begin{tabular}{l|l|l}
+    Name of the property in the LHADA file & c$++$ method & Description \\
+    \hline
+    mass        & mass() & Mass\\
+    e           & e()    & Energy\\
+    px          & px()   & momentum x-component\\
+    py          & py()   & momentum y-component\\
+    pz          & pz()   & momentum z-component\\
+    pt          & pt()   & absolute transverse momentum\\
+    eta         & eta()  & pseudorapidity\\
+    rapidity    & rapidity() & rapidity\\
+    charge      & charge() & charge\\
+    spin        & spin() & spin\\
+    pdgid       & pdgid() & PDG particle id\\
+    phi         & phi()   & momentum phi coordinate\\
+    x           & x()     & particle production vertex x-coordinate\\
+    y           & y()     & particle production vertex y-coordinate\\
+    z           & z()     & particle production vertex z-coordinate  \\
+  \end{tabular}
+\end{table}
+
+
+\begin{table}
+  \caption{Definition of the FourMomentum type. \label{tab:mom}}
+  \begin{tabular}{l|l|l}
+    Name of the property in the LHADA file & c$++$ method & Description \\
+    \hline
+    mass 	& mass()     & Mass\\
+    e 	        & e()        & Energy\\
+    px 	        & px()       & momentum x-component\\
+    py 	        & py()       & momentum y-component\\
+    pz 	        & pz()       & momentum z-component\\
+    pt 	        & pt()       & absolute transverse momentum\\
+    eta         & eta()      & pseudorapidity\\
+    rapidity    & rapidity() & rapidity\\
+  \end{tabular}
+\end{table}
+
+ 
+\begin{table}
+  \caption{Definition of the random object interface: list of provided methods. \label{tab:rand}}
+  \begin{tabular}{l|p{20em}}
+    c$++$ method & Description \\
+    \hline
+    uniform(double x)  & Returns a pseudorandom number following a uniform distribution over the $[0, \text{x}]$ interval.\\
+    gauss(double mean, double sigma)    & Returns a pseudorandom number following a Gaussian distribution.\\
+    poisson(int mean) & Returns a pseudorandom number following a Poisson distribution.\\
+    breitWigner(double mean, double gamma) & Returns a pseudorandom number following a Breit-Wigner distribution. \\
+    exp(double tau) & Return a pseudorandom number following the $\exp(-t/\text{tau})$ distribution. \\
+    landau(double mean, double sigma) & Returns a pseudorandom number following a Landau distribution. \\
+    binomial(int ntot, double prob) & Returns a pseudorandom number in the $[0, \text{ntot}]$ interval following a Binomial distribution.
+  \end{tabular}
+\end{table}
+
+%%\#include ``lhada17v1.h''?
+
+The {\sc LHADA} language does not explicitly specify how the arguments listed in a {\tt function} block are matched to the arguments of the reference implementation of the function. To prevent confusion {\sc LHADA17} requires that the arguments appear in the {\tt function} block in the order of the c$++$ function argument list of its reference implementation and with the same name. If the names differ, the arguments should be matched according to their order, though in such case the file can simply be considered as invalid.
+
+An object block defines an entity, typically a collection of particles, starting from the input defined by the {\tt take} statement that is transformed by a sequence of {\tt cut} and {\tt apply} statements. The object is implicitly passed to the functions of the {\tt apply} statements. In {\sc Lhada17} the object is passed to the first argument of function.
+
+Two extensions to {\sc LHADA} are introduced in {\sc LHADA17}. The first is the backslash line continuation marker described above. The second extension is the {\tt uid} attribute of the {\tt object} block that is defined in the EBNF language description. This attribute, whose name stands for ``universal identifier'', identifies the {\tt object}. In {\sc Lhada17}, object blocks with a {\tt take external} statement include a {\tt uid} and no {\tt apply} or {\tt cut} statement. The {\tt uid} attribute is reserved to this type of {\tt objects}.
+
+\section{Description of analyses in {\sc Lhada}}
+
+In order to test the suitability of the {\sc Lhada} language to describe a LHC analysis three different analyses have been considered. The first analysis is the {\em Search for new physics in the all-hadronic final state with the MT2 variable} from Ref.~\cite{CMS:2016xva}. The two other analyses are the {\em Search for squarks and gluinos in final states with jets and missing transverse momentum at $\sqrt{s} = 13\,$TeV  with the ATLAS detector}~\cite{Aaboud:2016zdn} and {\em Search for dark matter at $\sqrt{s}=13\,$TeV in final states containing an energetic photon and large missing transverse momentum with the ATLAS detector}~\cite{Aaboud:2017dor}, which are used for the comparison of the reinterpretation tools performed in Contribution~\ref{sec:recast}.
+
+We have described the three analyses with the {\sc Lhada} language and the descriptions can be found in the analysis descriptions database~\cite{bib:lhada_git} respectively under {\tt lhada/analyses/CMS-PAS-SUS-16-015}, {\tt lhada/analyses /ATLASSUSY1605.03814}, and {\tt lhada/analyses/ATLASEXOT1704. 0384}. No particular difficulty has been encountered. The {\sc Lhada17} language subset has been used and a cut flow table has been included [editor's note: to be added] in the description to allow the validation of the descriptions using code generated with the interpreter.
+
+\section{{\sc Lhada2Rivet}}
+
+The {\sc Lhada} language will play a role for LHC result reinterpretations only if it is interfaced to commonly used reinterpretation frameworks. The interface can be done in two different ways. The first approach is to interpret the analysis description at run time. The second one, which is adopted here, is to generate code from the description.
+
+A prototype application, called {\sc Lhada2Rivet}, that produces a {\sc Rivet} analysis from its description in {\sc Lhada17} has been developed. The analysis produces a cut flow table using. Special care has been taken to produce code in the {\sc Rivet} style using facilities provided by the framework, like the projections or the {\tt CutFlow} class.
+
+Detector response simulation has been partly addressed. The random object was introduced in {\sc Lhada17} to allow the definition of  the detector resolution and efficiency using a c$++$ function.  Such functions will be added to the central database along with the defined objects. In addition, the object {\tt uid} provides the identification of the objects whose detector response is already included in {\sc Rivet} permitting to use the Rivet built-in detector response simulation in such case. Support for detector response simulation is expected to be included soon in the {\sc Lhada2Rivet} interpreter based on these features.
+
+The code produced by the {\sc Lhada2Rivet} interpreter for the first analysis considered in the previous section can be found in appendix~\ref{app:code}. Each {\sc Lhada} cut block is mapped to a c$++$ method. Rivet built-in tools, as Projections and Cutflow are used, leading to a clean code that is well integrated in the framework. The {\sc Rivet} interface to the fastjet~\cite{Cacciari:2011ma} library is used. The anti-$k_{\text{T}}$ jet used in the analysis is identified as such by the interpreter based on the name of the function specified in the {\tt apply} statement of the {\sc Lhada} {\tt object} block. This identification based on a name convention will be replaced by use the common library introduced in Sec.~\ref{sec:desc} in future update of the interpreter.
+
+With this prototype we have investigated the different aspects that a result reinterpretation code generator based on a {\sc Lhada} analysis description should cover. We can conclude from this exercise that the development of such a generator that takes as input a description compliant with the {\sc Lhada17} specifications can be done with a limited effort. The code produced by such a generator can be used to validate the analysis description using analysis cut flow, which needs to be provided by the analysis authors. 
+
+
+%\section{{\sc Lhada2TNM} interpreter}
+%
+%{\em placeholder for Harrison's contribution.}
+
+
+\section{Conclusion}
+
+The sustainability of the {\sc Lhada} language to be used in the context of analysis reinterpretation has been studied. Three questions have been addressed: the analysis range the language can cover, the completeness of the analysis description, and the capacity to validate the analysis description. The analysis coverage question has been tackled by taking three different LHC results and implementing their description. The language turns out to be very flexible and no difficulty has been encountered in this exercise giving confidence that the coverage covers the need. Nevertheless, it will be wise to extend the exercise with more sophisticated analyses. The two other questions have been addressed with the development of an application prototype that produces reinterpretation code.  The development of an application generating reinterpretation code out of a {\sc Lhada} analysis description can easily be done provided that the syntax used by the description is well-defined and not too flexible. A specialisation, {\sc Lhada17}, of the {\sc Lhada} language that fulfils this requirement has been set up. The restrictions introduced by {\sc Lhada17} have not been a limitation for the description of the analysis considered in the coverage test. 
+
+\section*{Appendices}
+
+\appendix
+
+\section{{\sc Lhada17} language syntax}\label{app:ebnf}
+
+\fvset{fontsize=\footnotesize}
+\VerbatimInput{lhada.ebnf}
+
+\section{Example of code produced by the {\sc Ladha2rivet} interpreter}\label{app:code}
+
+\VerbatimInput{CMS_PAS_SUS_16_015.cc}
+
+\bibliography{houches2017_lhada.bib}
+
+\end{document} 
+
