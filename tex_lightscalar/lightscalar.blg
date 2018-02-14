@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: lightscalar.aux
+The style file: lesHouches.bst
+Database file #1: lightscalar.bib
+Repeated entry---line 1366 of file lightscalar.bib
+ : @article{Cacciapaglia:2016tlr
+ :                              ,
+I'm skipping whatever remains of this entry
+Warning--empty title in Angelescu:2017jyj
+Warning--empty title in Cacciapaglia:2016tlr
+Warning--empty title in Fichet:2015yia
+Warning--empty title in Fichet:2013ola
+Warning--empty title in Fichet:2013gsa
+Warning--empty title in Baldenegro:2017aen
+Warning--empty title in Belyaev:2016ftv
+Warning--empty title in Fichet:2016xvs
+Warning--empty title in Degrande:2011ua
+Warning--empty title in Bellm:2015jjp
+Warning--empty title in Bahr:2008pv
+Warning--empty title in MadGraph
+Warning--empty title in Buckley:2010ar
+Warning--empty title in Butterworth:2016sqg
+Warning--empty title in Aad:2012tba
+Warning--empty title in Aad:2013zba
+Warning--empty title in Aad:2016xcr
+Warning--empty title in Chatrchyan:2013mwa
+Warning--empty title in Aad:2013gaa
+Warning--empty title in ATLAS:2012ar
+Warning--empty title in Aad:2013izg
+Warning--empty title in Aad:2016sau
+Warning--empty title in Aad:2014lwa
+You've used 23 entries,
+            2120 wiz_defined-function locations,
+            656 strings with 7938 characters,
+and the built_in function-call counts, 7809 in all, are:
+= -- 725
+> -- 301
+< -- 0
++ -- 108
+- -- 85
+* -- 711
+:= -- 1080
+add.period$ -- 24
+call.type$ -- 23
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 46
+duplicate$ -- 439
+empty$ -- 728
+format.name$ -- 85
+if$ -- 1997
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 92
+newline$ -- 72
+num.names$ -- 23
+pop$ -- 96
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 318
+stack$ -- 0
+substring$ -- 278
+swap$ -- 209
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 23
+while$ -- 50
+width$ -- 25
+write$ -- 247
+(There was 1 error message)

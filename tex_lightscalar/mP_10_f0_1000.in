@@ -1,0 +1,120 @@
+read FRModel.model 
+set /Herwig/FRModel/Particles/phiNP:NominalMass 10.*GeV 
+set /Herwig/FRModel/FRModel:f0B 1000 
+set /Herwig/FRModel/FRModel:f0W 1000 
+set /Herwig/FRModel/FRModel:f0G 1000000 
+set /Herwig/FRModel/FRModel:f0H 1000000 
+set /Herwig/FRModel/FRModel:f0u 1000000 
+set /Herwig/FRModel/FRModel:f0d 1000000 
+set /Herwig/FRModel/FRModel:f0l 1000000 
+set /Herwig/FRModel/FRModel:f0gam 1000000 
+set /Herwig/FRModel/FRModel:f0Z 1000000 
+
+#############################
+# Run all final states
+#############################
+
+#do /Herwig/Particles/W+:SelectDecayModes W+->nu_e,e+; W+->nu_mu,mu+;
+#do /Herwig/Particles/W+:PrintDecayModes
+
+#do /Herwig/Particles/W-:SelectDecayModes W-->nu_ebar,e-; W-->nu_mubar,mu-;
+#do /Herwig/Particles/W-:PrintDecayModes
+
+#do /Herwig/Particles/Z0:SelectDecayModes Z0->e-,e+; Z0->mu-,mu+;
+#do /Herwig/Particles/Z0:PrintDecayModes
+
+####################################
+#
+# Modify the required process here
+#
+####################################
+
+cd /Herwig/NewPhysics
+
+insert HPConstructor:Incoming 0 /Herwig/Particles/u
+insert HPConstructor:Incoming 0 /Herwig/Particles/ubar
+insert HPConstructor:Incoming 0 /Herwig/Particles/d
+insert HPConstructor:Incoming 0 /Herwig/Particles/dbar
+insert HPConstructor:Incoming 0 /Herwig/Particles/g
+insert HPConstructor:Incoming 0 /Herwig/Particles/s
+insert HPConstructor:Incoming 0 /Herwig/Particles/sbar
+insert HPConstructor:Incoming 0 /Herwig/Particles/b
+insert HPConstructor:Incoming 0 /Herwig/Particles/bbar
+insert HPConstructor:Incoming 0 /Herwig/Particles/c
+insert HPConstructor:Incoming 0 /Herwig/Particles/cbar
+
+insert HPConstructor:Outgoing 0 /Herwig/FRModel/Particles/phiNP
+
+set HPConstructor:Processes SingleParticleInclusive
+
+
+#############################################################
+## Additionally, you can use new particles as intermediates
+## with the ResConstructor
+## Beware of double counting with the (phiNP + jet process)
+#############################################################
+insert ResConstructor:Incoming 0 /Herwig/Particles/u
+insert ResConstructor:Incoming 0 /Herwig/Particles/ubar
+insert ResConstructor:Incoming 0 /Herwig/Particles/d
+insert ResConstructor:Incoming 0 /Herwig/Particles/dbar
+insert ResConstructor:Incoming 0 /Herwig/Particles/s
+insert ResConstructor:Incoming 0 /Herwig/Particles/sbar
+insert ResConstructor:Incoming 0 /Herwig/Particles/c
+insert ResConstructor:Incoming 0 /Herwig/Particles/cbar
+insert ResConstructor:Incoming 0 /Herwig/Particles/b
+insert ResConstructor:Incoming 0 /Herwig/Particles/bbar
+
+insert ResConstructor:Intermediates 0 /Herwig/FRModel/Particles/phiNP
+
+insert ResConstructor:Outgoing 0 /Herwig/Particles/t
+insert ResConstructor:Outgoing 0 /Herwig/Particles/tbar
+insert ResConstructor:Outgoing 0 /Herwig/Particles/b
+insert ResConstructor:Outgoing 0 /Herwig/Particles/bbar
+insert ResConstructor:Outgoing 0 /Herwig/Particles/c
+insert ResConstructor:Outgoing 0 /Herwig/Particles/cbar
+insert ResConstructor:Outgoing 0 /Herwig/Particles/s
+insert ResConstructor:Outgoing 0 /Herwig/Particles/sbar
+insert ResConstructor:Outgoing 0 /Herwig/Particles/u
+insert ResConstructor:Outgoing 0 /Herwig/Particles/ubar
+insert ResConstructor:Outgoing 0 /Herwig/Particles/d
+insert ResConstructor:Outgoing 0 /Herwig/Particles/dbar
+insert ResConstructor:Outgoing 0 /Herwig/Particles/Z0
+insert ResConstructor:Outgoing 0 /Herwig/Particles/gamma
+insert ResConstructor:Outgoing 0 /Herwig/Particles/W+
+insert ResConstructor:Outgoing 0 /Herwig/Particles/W-
+insert ResConstructor:Outgoing 0 /Herwig/Particles/g
+insert ResConstructor:Outgoing 0 /Herwig/Particles/tau+
+insert ResConstructor:Outgoing 0 /Herwig/Particles/tau-
+insert ResConstructor:Outgoing 0 /Herwig/FRModel/Particles/H
+
+
+####################################
+####################################
+
+read snippets/PPCollider.in
+
+# Intrinsic pT tune extrapolated to LHC energy
+set /Herwig/Shower/ShowerHandler:IntrinsicPtGaussian 2.2*GeV
+
+# disable default cuts if required
+# cd /Herwig/EventHandlers
+# create ThePEG::Cuts   /Herwig/Cuts/NoCuts
+# set EventHandler:Cuts /Herwig/Cuts/NoCuts
+
+# Other parameters for run
+cd /Herwig/Generators
+set EventGenerator:EventHandler:LuminosityFunction:Energy 8000.0
+set EventGenerator:NumberOfEvents 10000000
+set EventGenerator:RandomNumberGenerator:Seed 31122001
+set EventGenerator:DebugLevel 0
+set EventGenerator:EventHandler:StatLevel Full
+set EventGenerator:PrintEvent 100
+set EventGenerator:MaxErrors 10000
+
+create ThePEG::RivetAnalysis Rivet RivetAnalysis.so
+insert EventGenerator:AnalysisHandlers 0 Rivet
+
+read 8_WEAK.ana
+read 8_HAD.ana
+
+saverun LHC EventGenerator

@@ -1,0 +1,322 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  7 FEB 2018 13:56
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**lightscalar
+(./lightscalar.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
+ icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
+iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
+ lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
+ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
+ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
+.
+(./cernrep.cls
+Document Class: cernrep 1995/02/14 cernrep class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/ntgclass/a4.sty
+Package: a4 2004/04/15 v1.2g A4 based page layout
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+Document Style `cernrep' 1.0 2 June 1997
+) (/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+)
+(./lightscalar.aux)
+\openout1 = `lightscalar.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 4.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen107
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen108
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+) (/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+(/usr/local/texlive/2011/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 29.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+[1
+
+{/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
+<ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500.pdf, id=18, 337.16966pt x 304.4474p
+t>
+File: ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500.pdf Graphic file (type pdf)
+ <use ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500.pdf>
+Package pdftex.def Info: ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500.pdf used on
+ input line 148.
+(pdftex.def)             Requested size: 223.0721pt x 201.42831pt.
+
+<ATLAS_2017_I1591327_d02-x01-y01-20-3500.pdf, id=19, 337.16966pt x 304.4474pt>
+File: ATLAS_2017_I1591327_d02-x01-y01-20-3500.pdf Graphic file (type pdf)
+
+<use ATLAS_2017_I1591327_d02-x01-y01-20-3500.pdf>
+Package pdftex.def Info: ATLAS_2017_I1591327_d02-x01-y01-20-3500.pdf used on in
+put line 149.
+(pdftex.def)             Requested size: 223.0721pt x 201.42831pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 157.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 157.
+
+
+LaTeX Warning: Reference `fig:higgs_and_cp' on page 3 undefined on input line 1
+65.
+
+[3 <./ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500.pdf> <./ATLAS_2017_I1591327_d0
+2-x01-y01-20-3500.pdf>]
+<ATLAS_2014_I1306615_d01-x01-y01-20_3500.pdf, id=71, 337.16966pt x 304.4474pt>
+File: ATLAS_2014_I1306615_d01-x01-y01-20_3500.pdf Graphic file (type pdf)
+
+<use ATLAS_2014_I1306615_d01-x01-y01-20_3500.pdf>
+Package pdftex.def Info: ATLAS_2014_I1306615_d01-x01-y01-20_3500.pdf used on in
+put line 171.
+(pdftex.def)             Requested size: 223.0721pt x 201.42831pt.
+
+<ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500e.pdf, id=72, 337.16966pt x 304.4474
+pt>
+File: ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500e.pdf Graphic file (type pdf)
+ <use ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500e.pdf>
+Package pdftex.def Info: ATLAS_2016_I1448301_NU_d08-x01-y01-10-3500e.pdf used o
+n input line 185.
+(pdftex.def)             Requested size: 223.0721pt x 201.42831pt.
+
+<ATLAS_2017_I1591327_d02-x01-y01-20-3500e.pdf, id=73, 337.16966pt x 304.4474pt>
+File: ATLAS_2017_I1591327_d02-x01-y01-20-3500e.pdf Graphic file (type pdf)
+<use ATLAS_2017_I1591327_d02-x01-y01-20-3500e.pdf>
+Package pdftex.def Info: ATLAS_2017_I1591327_d02-x01-y01-20-3500e.pdf used on i
+nput line 186.
+(pdftex.def)             Requested size: 223.0721pt x 201.42831pt.
+
+<cpo-wz-map.pdf, id=74, 226.9278pt x 198.0198pt>
+File: cpo-wz-map.pdf Graphic file (type pdf)
+ <use cpo-wz-map.pdf>
+Package pdftex.def Info: cpo-wz-map.pdf used on input line 204.
+(pdftex.def)             Requested size: 223.0721pt x 194.65936pt.
+
+<cpo-gg-map.pdf, id=75, 226.9278pt x 198.0198pt>
+File: cpo-gg-map.pdf Graphic file (type pdf)
+ <use cpo-gg-map.pdf>
+Package pdftex.def Info: cpo-gg-map.pdf used on input line 205.
+(pdftex.def)             Requested size: 223.0721pt x 194.65936pt.
+
+<cpo-map.pdf, id=76, 226.9278pt x 198.0198pt>
+File: cpo-map.pdf Graphic file (type pdf)
+ <use cpo-map.pdf>
+Package pdftex.def Info: cpo-map.pdf used on input line 206.
+(pdftex.def)             Requested size: 223.0721pt x 194.65936pt.
+
+<cpo-contour.pdf, id=77, 226.9278pt x 198.0198pt>
+File: cpo-contour.pdf Graphic file (type pdf)
+ <use cpo-contour.pdf>
+Package pdftex.def Info: cpo-contour.pdf used on input line 207.
+(pdftex.def)             Requested size: 223.0721pt x 194.65936pt.
+
+<colorbarkey.pdf, id=78, 453.8556pt x 36.135pt>
+File: colorbarkey.pdf Graphic file (type pdf)
+ <use colorbarkey.pdf>
+Package pdftex.def Info: colorbarkey.pdf used on input line 208.
+(pdftex.def)             Requested size: 450.69414pt x 35.884pt.
+
+<cpe-map.pdf, id=79, 226.9278pt x 198.0198pt>
+File: cpe-map.pdf Graphic file (type pdf)
+ <use cpe-map.pdf>
+Package pdftex.def Info: cpe-map.pdf used on input line 221.
+(pdftex.def)             Requested size: 223.0721pt x 194.65936pt.
+
+<cpe-contour.pdf, id=80, 226.9278pt x 198.0198pt>
+File: cpe-contour.pdf Graphic file (type pdf)
+ <use cpe-contour.pdf>
+Package pdftex.def Info: cpe-contour.pdf used on input line 222.
+(pdftex.def)             Requested size: 223.0721pt x 194.65936pt.
+File: colorbarkey.pdf Graphic file (type pdf)
+
+<use colorbarkey.pdf>
+Package pdftex.def Info: colorbarkey.pdf used on input line 223.
+(pdftex.def)             Requested size: 450.69414pt x 35.884pt.
+ (./lightscalar.bbl
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 5.
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [4 <./ATLAS_2014_I1306615_d01-x01-y01-20_3500.pdf>] [5 <./ATLAS_2016_I1448301
+_NU_d08-x01-y01-10-3500e.pdf> <./ATLAS_2017_I1591327_d02-x01-y01-20-3500e.pdf>]
+ [6 <./cpo-wz-map.pdf> <./cpo-gg-map.pdf> <./cpo-map.pdf> <./cpo-contour.pdf> <
+./colorbarkey.pdf>]) [7 <./cpe-map.pdf> <./cpe-contour.pdf>] (./lightscalar.aux
+)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1706 strings out of 493633
+ 25563 string characters out of 3143378
+ 10073055 words of memory out of 13023810
+ 4975 multiletter control sequences out of 15000+200000
+ 16419 words of font info for 39 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 38i,5n,23p,870b,282s stack positions out of 30000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
+011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
+1/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2011/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2011/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2011/texmf-dist/fonts
+/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/u
+rw/courier/ucrr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times
+/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on lightscalar.pdf (7 pages, 333792 bytes).
+PDF statistics:
+ 276 PDF objects out of 1000 (max. 8388607)
+ 218 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+
