@@ -94,50 +94,49 @@ Further improvements in the presentation of the results and their recastability 
 % \section{Formats}
 % Object efficiency tables : which format (HEPDATA?)
 
-\section{Benchmarking/Comparisons}
+\section{Benchmarking tools and comparison strategy}
 
-\begin{itemize}
-  \item Implementation of analyses of increasing complexity in the Analysis Description Format (LHADA Proposal) and in (BSM) Rivet and their comparison.
-  \item Choose an analysis of ATLAS or CMS which has cutflow and detector effects provided in some form, and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM.
-  \item Implement the same analysis in LHADA and then use the dedicated parsers to provide the analysis for the recasting codes.
-  \item Reproduce the NP interpretation of the original paper (=validation implementation).
-  \item Recast the analysis for an other new physics model and compare the results.
-  \item Go to point one and choose a more complicated analysis…
-\end{itemize}
-it would be interesting to see how Delphes performance looks without analysis-specific cards, since a lot of people (outside the “big” recasting groups) are using it that way.
+The idea behind the exercise described in this section is the implementation of KHC analyses of increasing complexity, both in the language-independent format (Analysis Description Format, LHADA Proposal) and frameworks like CheckMate, MadAnalysis, Rivet, followed by a comparison of the results.
+We choose analyses of ATLAS and CMS which have a detailed cutflow and detector effects provided in some form.
+% , and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM.
+In the future it will be beneficial to implement the same analyses in the LHADA format and use the dedicated parsers to convert the analysis into recasting codes.
+
+Once the analysis are available, we try to reproduce the New Physics interpretation of the original paper, validating their implementation.
+A further step consists in the recasting of the analysis other New Physics model and compare the results among the different frameworks.
+
+Aside the current scope of the exercise, it would be interesting to check how the performance from Delphes are with general-purpose and not analysis-specific cards, since this is usually the preferred use.
+
+A sketch of the recasting exercise workflow is presented in Fig.~\ref{fig:exercise}.
 
 \section{How to validate the analyses}
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{figures/lhada_benchmarking_excersise.png}
- \caption{Search reach for the $\mu \gamma {\not\!\!E}_{T}$ signal
-(as defined in the
-   text) for
-   300 fb$^{-1}$ integrated luminosity  at the LHC.
+\includegraphics[width=0.65\textwidth]{figures/lhada_benchmarking_excersise.png}
+ \caption{Sketch of the recasting exercise workflow.
 }
-\label{search}
+\label{fig:exercise}
 \end{center}
 \end{figure}
 
 
-\section{The analysis frameworks and tools}
+\subsection{The analysis frameworks and tools}
 In this section we describe the analysis frameworks and tools used for the comparison and benchmarking
 % \subsection{ATOM}
 % Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
 
-\subsection{CheckMate}
+\subsubsection{CheckMate}
 CheckMATE takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is "excluded" or "allowed" after performing a detector simulation and testing various implemented analyses. The embedded AnalysisManager makes it easy to add current and prospective future LHC results from ATLAS and CMS which have not yet been implemented. Detector effects are considered by Delphes extended by tuned efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 adds the possibility of using Pythia8 to generate SUSY events on-the-fly or to shower provided .lhe files for any model. Currently, the collaboration is working on an extension to enable the on-the-fly simulation of events for any model.
 
 
-\subsection{MadAnalysis}
+\subsubsection{MadAnalysis}
 MadAnalysis 5 is a generic user-friendly framework for phenomenological investigations at particle colliders, i.e. to perform physics analyses of Monte Carlo event files. Its Public Analysis Database (PAD)comprises a growing collection of LHC analyses, which have been implemented in the MadAnalysis 5 framework for the purpose of recasting. Delphes3 is used for the detector simulation. For each implemented analysis, a detailed validation note is provided. The PAD follows an open-source policy; contributed codes are published and citable via Inspire. The framework is currently being extended to provide a full recast chain, from Madgraph to limit setting.
 
-\subsection{Rivet}
+\subsubsection{Rivet}
 Originally developed as a toolkit for the validation of Monte Carlo event generators, Rivet (Robust Independent Validation of Experiment and Theory) has become a standard for documenting [unfolded] SM measurements. The LHC experiment top and Higgs groups are also increasingly providing Rivet routines for their analyses. Rivet analyses are written in a user-friendly subset of C++11, and are picked up at runtime as "plugin libraries"; they can be executed on an event stream either through a Python script interface, or by direct code interfacing to a C++ API.
 The original SM-focused requirement of unfolded observables made Rivet inappropriate for BSM searches (other than those using just jets and MET) until the addition of detector-smearing/efficiency machinery in Rivet 2.5.0. This detector machinery provides equivalent efficiency effects to a Delphes-type simulation, and imitates the less important kinematic smearing of physics objects to within a few percent. A novel feature is that the Rivet detector implementation allows jet algorithms, lepton and b-tagging operating points, full-detailed object isolation algorithms, and resolutions/efficiencies to be specific to each analysis's procedure and event-selection. This allows more accurate detector modelling and more robust analysis preservation than "global" detector simulations, hence addresses some experiment concerns re. requests for "official fast-sim" tools. The aim is to encourage Rivet code provision direct from BSM data analysers, as is already the case for SM results: additional tools to assist BSM analysis implementation are being added on request.
 
-\subsection{Generic Analysis Description Proposal}
-Brief description of the Generic Analysis Description Proposal
+\subsubsection{Generic Analysis Description Proposal}
+A description of the Generic Analysis Description Proposal and its recent developments in contained in section~\ref{LHADA} of the proceedings.
 
 \section{Analyses benchmarking, comparisons and results}
 
@@ -146,7 +145,7 @@ Brief description of the ATLAS analysis Jets+MET at 13 TeV (arxiv:1605.03814).
 Results are reported in table~\ref{tab:1605.03814}.
 
 \begin{table*}[htbp]
-\tiny
+\footnotesize
 	\centering
 		\begin{tabular}{ | l || l | l | l || l | l | l || l | }
 \hline
@@ -232,7 +231,7 @@ Brief description of the ATLAS analysis Monophoton at 13 TeV (arxiv:1704.03848).
 Results are reported in table~\ref{tab:1704.03848}.
 
 \begin{table*}[htbp]
-\tiny
+\footnotesize
 	\centering
 		\begin{tabular}{ | l || l | l | l || l | l | l | }
 \hline
