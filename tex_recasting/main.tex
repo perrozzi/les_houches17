@@ -1,5 +1,6 @@
 \documentclass[11pt]{cernrep}
 \usepackage{graphicx,epsfig}
+\usepackage[utf8]{inputenc}
 \bibliographystyle{lesHouches}
 \begin{document}
 
@@ -28,14 +29,14 @@ activities and attempt a first benchmark to compare different tools to reproduce
 CMS analysis results.
 \end{abstract}
 
-\section{INTRODUCTION}
+\section{Introduction}
 
 Searches for new physics constitute a basic ingredient of the LHC physics program.
-Their variety and large number pose severe challenges to both the experimental and theory communities.
-In fact, hundreds of searches are performed by different collaborations, a wide variety of final states is used,
+Their large number and variety pose severe challenges to both the experimental and theory communities.
+In fact, hundreds of searches are performed by different collaborations, several final states are used,
 new ideas on how to probe new models and non-trivial signatures and improve the sensitivity of existing searches constantly emerge.
 The ultimate goal of this effort is to discover new physics if such
-exists within the range of the LHC, and to test the widest possible range of hypothetical new physics models.
+exists within the reach of the LHC, and to test the widest possible range of hypothetical new physics models.
 
 A typical analysis defines quantities that aid in classifying the event as signal or background: for example
 the properties of analysis objects such as jets, electrons, muons, etc., or global event variables
@@ -49,7 +50,7 @@ One obvious way to cope with the complexity is to devise ways to enforce absolut
 A discussion was started in the Les Houches PhysTeV workshop in 2011, and continued
 thereafter within a wider group of LHC physicists, in order to determine what information is
 crucial for describing an analysis. The outcome of this discussion was reported in the
-\"Recommendations for Presentation of LHC Results\" [524,525], and has been embraced by many LHC physicists.
+''Recommendations for Presentation of LHC Results''~\cite{Brooijmans:2012yi,Kraml:2012sg,Brooijmans:2016vro}, and has been embraced by many LHC physicists.
 
 The current practice in our community is to write an analysis in non-public computer codes,
 which often rely on event objects specific to the experimental collaboration in question,
@@ -60,67 +61,37 @@ have significantly increased the scientific value of many important experimental
 
 There is significant precedent for the effectiveness of such community standards. Several
 accords have been established to standardize the communication of physics modeling information,
-notably the Les Houches Event Accord (LHE) [529, 530] and the SUSY Les Houches Accord (SLHA) [190, 531].
+notably the Les Houches Event Accord (LHE)~\cite{Boos:2001cv,Alwall:2006yp} and the SUSY Les Houches Accord (SLHA)~\cite{Allanach:2008qq,Skands:2003cj}.
 These, respectively, standardize the description of hard-process
 particles in simulated collision events, and the details of all the parameters that define a BSM model point.
 Both accords are widely used in high-energy physics and have greatly helped to
 simplify and make more efficient the communication between physicists.
-In this report, we underscore the need for a standardized format — an “analysis description
-accord” — capable of describing the contents of an analysis in an unambiguous way, which can
+In recent years, the need for a standardized format was also underscored, i.e. an “analysis description
+accord”, capable of describing the contents of an analysis in an unambiguous way, which can
 be fully exploited by the whole particle physics community.  The accord must be capable of
 describing all object and event selections, as well as quantities such as efficiencies, analytic and
 algorithmic observables, and advanced multivariate selections.
 In the Les Houches PhysTeV workshop in 2015, a dedicated discussion has been initiated
-on how such an accord can be realized.
+on how such an accord can be realized~\cite{Brooijmans:2016vro}.
 The important motivations and use-cases for a standard analysis description accord were envisaged as:
-\begin{itemize}
-  \item Analysis preservation
-  \item Analysis design
-  \item Analysis review and communication
-  \item Interpretation studies and analysis reimplementation
-  \item Easier comparison of analyses
-\end{itemize}
+analysis preservation, Analysis design, analysis review and communication, interpretation studies and analysis reimplementation,easier comparison of analyses.
 In addition, there are several desirable features which would further improve the utility
-of the accord, which, however, may be nontrivial to simultaneously fulfill.  Therefore, here
-we list all the desirable features, leaving it to the community discussion (and to individual
-prototypes) to decide which of these desiderata should inform an eventual accord. We start by
-listing the features we believe essential to the success of such an accord.
-
-BASIC REQUIREMENTS:
-\begin{itemize}
-  \item Public availability
-  \item Completeness
-  \item Longevity
-  \item Correctness and validatability
-\end{itemize}
-DESIRABLE FEATURES:
-\begin{itemize}
-  \item Human readability and writeability
-  \item Self-contained
-  \item Language independence
-  \item Framework independence
-  \item Support for combination of analyses
-\end{itemize}
+of the accord, which, however, may be nontrivial to simultaneously fulfill.  
+The features required for the success of such an accord would be divided into basic requirements (public availability, completeness, longevity, correctness and validatability) and desirable features (human readability and writeability, self-contained, language independence, framework independence, support for combination of analyses). 
 
 Several discussions and progresses have been made, but the proposal is not yet final and has not been widely adopted yet.
 
 % In the following sections we shall detail the use cases
 % and design requirements of such an accord, and the general pros and cons of several approaches.
-The scope of this report, therefore, is to document the advancements obtained so far
+The scope of this report, is to document the advancements obtained so far
 on the recasting activities and attempt a first benchmark to compare different tools
-to reproduce several ATLAS and CMS analyses' results.
+to reproduce several ATLAS and CMS analyses' results provided through HEPDATA~\cite{Maguire:2017ypu}.
+To trust the reliability of this recasting approach, we realize feasibility studies of the implementation and portability of complicated MVA techniques (BDT, NN,…) into the recasting frameworks featuring different approaches like detector smearing (DELPHES~\cite{deFavereau:2013fsa}) results and simple object smearing.
 
-\section{General Activities}
+Further improvements in the presentation of the results and their recastability will be to provide correlations signal systematics, as well as the possibility to provide a few key observables unfolded. Finally, it would be interesting in the future to try using particle-level measurements to constrain models.
 
-\begin{itemize}
-  \item Feasibility study of the implementation/portability of complicated MVA techniques (BDT, NN,…) into the analyses
-  \item Improvement of results and recastability: how to provide correlations signal systematics, possibility of providing a few key observables unfolded.
-  \item Comparison of between DELPHES results and simple object smearing.
-  \item Trying out the use of particle-level measurements to constrain model models
-\end{itemize}
-
-\section{Formats}
-Object efficiency tables : which format (HEPDATA?)
+% \section{Formats}
+% Object efficiency tables : which format (HEPDATA?)
 
 \section{Benchmarking/Comparisons}
 
