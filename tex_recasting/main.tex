@@ -1,7 +1,18 @@
 \documentclass[11pt]{cernrep}
-\usepackage{graphicx,epsfig, url}
+\usepackage{graphicx,epsfig, url,cite,slashed}
 \usepackage[utf8]{inputenc}
+\usepackage[bookmarks,linktocpage]{hyperref}
 \bibliographystyle{lesHouches}
+
+
+
+\hypersetup{
+   colorlinks=true,       % false: boxed links; true: colored links
+   linkcolor=blue,        % color of internal links
+   citecolor=red,         % color of links to bibliography
+   filecolor=magenta,     % color of file links
+   }
+
 \begin{document}
 
 \setlength\parindent{0pt}
@@ -9,7 +20,8 @@
 \title{Recasting activities at LH2017}
 
 \author{L.~Perrozzi$^1$, Fabio~Maltoni, Sabine~Kraml, Gabriel~Facini, David~Grellscheid, Sezen~Sekmen,
-  Jonathan~Butterworth, Nishita~Desai, Andy~Buckley$^{AB}$, Benjamin~Fuks, Eric~Conte, Peter~Richardson,
+Jonathan~Butterworth, Nishita~Desai, Andy~Buckley$^{AB}$, Benjamin~Fuks$^{BF}$,
+Eric~Conte, Peter~Richardson,
   Olivier~Mattelaer, Pasquale~Musella, Alexandra~Oliveira~Carvalho, Ursula~Laa, Kristin~Lohwasser,
   ???~Thrynova, Efe~Yazgan, Philippe~Gras$^{20}$, Sylvain~Fichet}
 
@@ -18,6 +30,10 @@ $^1$ IPA at ETH Zurich, Switzerland
 \\
 $^2$ \dots\\
 $^{AB}$ School of Physics \& Astronomy, University of Glasgow, UK\\
+$^{BF}$ Sorbonne Université, CNRS, Laboratoire de Physique Théorique et
+  Hautes \'Energies, LPTHE, F-75005 Paris, France;
+  Institut Universitaire de France, 103 boulevard Saint-Michel,
+  75005 Paris, France
 $^{20}$ IRFU, CEA, Universit\'e Paris-Saclay, Gif-sur-Yvette
 }
 
@@ -38,15 +54,16 @@ new ideas on how to probe new models and non-trivial signatures and improve the 
 The ultimate goal of this effort is to discover new physics if such
 exists within the reach of the LHC, and to test the widest possible range of hypothetical new physics models.
 
-A typical analysis defines quantities that aid in classifying the event as signal or background: for example
-the properties of analysis objects such as jets, electrons, muons, etc., or global event variables
-such as object multiplicities, transverse momenta, transverse masses, etc.
+A typical analysis defines quantities that aid in classifying events as signal
+or background. This for example includes properties of analysis objects such as
+jets, electrons, muons, or global event variables such as object multiplicities,
+transverse momenta or transverse masses.
 An analysis can be very complex and feature many intricate definitions of object and event
 variables, some of which cannot be expressed in closed algebraic form and must be defined
 algorithmically. This complexity renders the task of visualizing, understanding, developing and
 interpreting analyses increasingly challenging.
 
-One obvious way to cope with the complexity is to devise ways to enforce absolute clarity in the description of analyses.
+One obvious way to cope with this complexity is to devise ways to enforce absolute clarity in the description of analyses.
 A discussion was started in the Les Houches PhysTeV workshop in 2011, and continued
 thereafter within a wider group of LHC physicists, in order to determine what information is
 crucial for describing an analysis. The outcome of this discussion was reported in the
@@ -63,10 +80,11 @@ There is significant precedent for the effectiveness of such community standards
 accords have been established to standardize the communication of physics modeling information,
 notably the Les Houches Event Accord (LHE)~\cite{Boos:2001cv,Alwall:2006yp} and the SUSY Les Houches Accord (SLHA)~\cite{Allanach:2008qq,Skands:2003cj}.
 These, respectively, standardize the description of hard-process
-particles in simulated collision events, and the details of all the parameters that define a BSM model point.
+particles in simulated collision events, and the details of all the parameters that define a new physics model point.
 Both accords are widely used in high-energy physics and have greatly helped to
 simplify and make more efficient the communication between physicists.
-In recent years, the need for a standardized format was also underscored, i.e. an “analysis description
+In recent years, the need for a standardized format was also underscored,
+{\it i.e.} an “analysis description
 accord”, capable of describing the contents of an analysis in an unambiguous way, which can
 be fully exploited by the whole particle physics community.  The accord must be capable of
 describing all object and event selections, as well as quantities such as efficiencies, analytic and
@@ -74,7 +92,7 @@ algorithmic observables, and advanced multivariate selections.
 In the Les Houches PhysTeV workshop in 2015, a dedicated discussion has been initiated
 on how such an accord can be realized~\cite{Brooijmans:2016vro}.
 The important motivations and use-cases for a standard analysis description accord were envisaged as:
-analysis preservation, Analysis design, analysis review and communication, interpretation studies and analysis reimplementation,easier comparison of analyses.
+analysis preservation, analysis design, analysis review and communication, interpretation studies and analysis reimplementation, as well as easier comparison of analyses.
 In addition, there are several desirable features which would further improve the utility
 of the accord, which, however, may be nontrivial to simultaneously fulfill.  
 The features required for the success of such an accord would be divided into basic requirements (public availability, completeness, longevity, correctness and validatability) and desirable features (human readability and writeability, self-contained, language independence, framework independence, support for combination of analyses).
@@ -85,28 +103,40 @@ Several discussions and progresses have been made, but the proposal is not yet f
 % In the following sections we shall detail the use cases
 % and design requirements of such an accord, and the general pros and cons of several approaches.
 The scope of this report, is to document the advancements obtained so far
-on the recasting activities and attempt a first benchmark to compare different tools
-to reproduce several ATLAS and CMS analyses' results provided through HEPDATA~\cite{Maguire:2017ypu}.
-To trust the reliability of this recasting approach, we realize feasibility studies of the implementation and portability of complicated MVA techniques (BDT, NN,…) into the recasting frameworks featuring different approaches like detector smearing (DELPHES~\cite{deFavereau:2013fsa}) results and simple object smearing.
+on the recasting activities, and the attempt for a first benchmark to compare different tools
+to reproduce several ATLAS and CMS analysis results provided through HEPDATA~\cite{Maguire:2017ypu}.
+To trust the reliability of this recasting approach, we realize feasibility studies of the implementation and portability of complicated multivariate techniques
+(boosted
+decision trees, neutral networks, {\it etc.}) into the recasting frameworks featuring different approaches like detector smearing (Delphes~\cite{deFavereau:2013fsa}) results and simple object smearing.
 
-Further improvements in the presentation of the results and their recastability will be to provide correlations signal systematics, as well as the possibility to provide a few key observables unfolded. Finally, it would be interesting in the future to try using particle-level measurements to constrain models.
+Further improvements in the presentation of the results and their recastability
+will be to provide correlations among the signal systematics, as well as to
+address the possibility to provide a few key observables unfolded. Finally, it would be interesting in the future to try using particle-level measurements to constrain models.
 
 % \section{Formats}
 % Object efficiency tables : which format (HEPDATA?)
 
 \section{Benchmarking tools and comparison strategy}
 
-The idea behind the exercise described in this section is the implementation of KHC analyses of increasing complexity, both in the language-independent format (Analysis Description Format, LHADA Proposal) and frameworks like CheckMate, MadAnalysis, Rivet, followed by a comparison of the results.
+The idea behind the exercise described in this section is the implementation of
+LHC analyses of increasing complexity, both in the language-independent format
+(Analysis Description Format, LHADA Proposal) and frameworks like
+CheckMate~\cite{checkmate},
+MadAnalysis~\cite{Conte:2012fm,Conte:2014zja,Dumont:2014tja}
+and Rivet~\cite{rivet}, followed by a comparison of the results.
 We choose analyses of ATLAS and CMS which have a detailed cutflow and detector effects provided in some form.
 % , and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM.
 In the future it will be beneficial to implement the same analyses in the LHADA format and use the dedicated parsers to convert the analysis into recasting codes.
-
-Once the analysis are available, we try to reproduce the New Physics interpretation of the original paper, validating their implementation.
-A further step consists in the recasting of the analysis other New Physics model and compare the results among the different frameworks.
-
-Aside the current scope of the exercise, it would be interesting to check how the performance from Delphes are with general-purpose and not analysis-specific cards, since this is usually the preferred use.
-
+Once analysis implementations are available, we try to reproduce new physics
+interpretations presented in the original experimental research paper,
+validating in this way our reimplementations.
+A further step consists in the recasting of the analysis within other new
+physics contexts and compare the results among the different frameworks.
 A sketch of the recasting exercise workflow is presented in Fig.~\ref{fig:exercise}.
+
+Aside the current scope of the exercise, it would be interesting to check how the performance from Delphes are general and not analysis-specific, since this
+last case is usually the preferred use.
+
 
 \section{How to validate the analyses}
 \begin{figure}
@@ -125,38 +155,64 @@ In this section we describe the analysis frameworks and tools used for the compa
 % Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
 
 \subsubsection{CheckMate}
-CheckMATE takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is "excluded" or "allowed" after performing a detector simulation and testing various implemented analyses. The embedded AnalysisManager makes it easy to add current and prospective future LHC results from ATLAS and CMS which have not yet been implemented. Detector effects are considered by Delphes extended by tuned efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 adds the possibility of using Pythia8 to generate SUSY events on-the-fly or to shower provided .lhe files for any model. Currently, the collaboration is working on an extension to enable the on-the-fly simulation of events for any model.
+CheckMATE~\cite{checkmate} takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is `excluded' or `allowed' after
+performing a detector simulation and testing various implemented analyses. The embedded AnalysisManager allows for the embedding of additional current and
+prospective future LHC results from ATLAS and CMS which have not yet been implemented.
+Detector effects are modeled by Delphes with a tune containing efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 of the code adds the possibility of using Pythia 8~\cite{pythia8} to
+generate supersymmetric events on-the-fly or to shower provided Les Houches
+event files for any model. Currently, the collaboration is working on an extension to enable the on-the-fly simulation of events for any model.
 
 
 \subsubsection{MadAnalysis}
-MadAnalysis 5 is a generic user-friendly framework for phenomenological investigations at particle colliders, i.e. to perform physics analyses of Monte Carlo event files. Its Public Analysis Database (PAD)comprises a growing collection of LHC analyses, which have been implemented in the MadAnalysis 5 framework for the purpose of recasting. Delphes3 is used for the detector simulation. For each implemented analysis, a detailed validation note is provided. The PAD follows an open-source policy; contributed codes are published and citable via Inspire. The framework is currently being extended to provide a full recast chain, from Madgraph to limit setting.
+MadAnalysis 5~\cite{Conte:2012fm,Conte:2014zja} is a generic user-friendly
+framework for phenomenological investigations at particle colliders, {\it i.e.}
+to perform physics analyses of Monte Carlo event files. While prospective
+analyses of hard scattering events, parton showered events, hadronized events or
+reconstructed events can be designed easily thanks to its Python-based
+meta-language, MadAnalysis also allows for the recasting of LHC analyses on new
+physics signals provided under the form of .hep and .hepmc event files. The
+output here consists in the confidence level at which the model signals are
+excluded.
+Its Public Analysis Database~\cite{Dumont:2014tja} comprises a growing
+collection of LHC analyses which have been implemented in the MadAnalysis 5
+framework for the purpose of recasting. Delphes is used for the detector
+simulation. For each implemented analysis, a detailed validation note is
+provided and the public analysis database follows an open-source policy. Only
+contributed codes provided with a detailed validation note are published, and
+they are moreover citable via Inspire. The framework being integrated within
+MadGraph~\cite{Alwall:2014hca}, it provides a full recast chain linking a model
+and its associated signatures to limit setting.
 
 \subsubsection{Rivet}
-Originally developed as a toolkit for the validation of Monte Carlo event generators, Rivet (Robust Independent Validation of Experiment and Theory) has become a standard for documenting [unfolded] SM measurements. The LHC experiment top and Higgs groups are also increasingly providing Rivet routines for their analyses. Rivet analyses are written in a user-friendly subset of C++11, and are picked up at runtime as "plugin libraries"; they can be executed on an event stream either through a Python script interface, or by direct code interfacing to a C++ API.
-The original SM-focused requirement of unfolded observables made Rivet inappropriate for BSM searches (other than those using just jets and MET) until the addition of detector-smearing/efficiency machinery in Rivet 2.5.0. This detector machinery provides equivalent efficiency effects to a Delphes-type simulation, and imitates the less important kinematic smearing of physics objects to within a few percent. A novel feature is that the Rivet detector implementation allows jet algorithms, lepton and b-tagging operating points, full-detailed object isolation algorithms, and resolutions/efficiencies to be specific to each analysis's procedure and event-selection. This allows more accurate detector modelling and more robust analysis preservation than "global" detector simulations, hence addresses some experiment concerns re. requests for "official fast-sim" tools. The aim is to encourage Rivet code provision direct from BSM data analysers, as is already the case for SM results: additional tools to assist BSM analysis implementation are being added on request.
+Originally developed as a toolkit for the validation of Monte Carlo event
+generators, Rivet~\cite{rivet} (Robust Independent Validation of Experiment and
+Theory) has become a standard for documenting (unfolded) Standard Model (SM)
+measurements. The top and Higgs physics working groups of all LHC experiments
+are increasingly providing Rivet routines for their analyses. Rivet analyses are
+written in a user-friendly subset of C++11, and are picked up at runtime as
+`plugin libraries'; they can be executed on an event stream either through a Python script interface, or by direct code interfacing to a C++ API.
+The original SM-focused requirement of unfolded observables made Rivet
+inappropriate for beyond the Standard Model (BSM) searches (other than those
+using just jets and missing energy) until the addition of
+detector-smearing/efficiency machinery in Rivet~2.5.0. This detector machinery provides equivalent efficiency effects to a Delphes-type simulation, and imitates the less important kinematic smearing of physics objects to within a few percent. A novel feature is that the Rivet detector implementation allows for using
+different jet algorithms, lepton and b-tagging operating points, full-detailed object isolation algorithms, and resolutions/efficiencies specific to each
+analysis procedure and event selection. This hence allows for a more accurate detector modelling and more robust analysis preservation than `global' detector simulations in addressing some experiment requests for `official fast-sim' tools. The aim is to encourage Rivet code provision directly from BSM data analysers, as is already the case for SM results: additional tools to assist BSM analysis implementation are being added on request.
 
 \subsubsection{Generic Analysis Description Proposal}
 A description of the Generic Analysis Description Proposal and its recent developments in contained in section~\ref{LHADA} of the proceedings.
 
 \section{Analyses benchmarking, comparisons and results}
 
-\subsection{arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV}
-Brief description of the ATLAS analysis Jets+MET at 13 TeV (arxiv:1605.03814).
-Results are reported in table~\ref{tab:1605.03814}.
+\subsection{An ATLAS search for supersymmetry in a final
+state with jets and missing energy (13 TeV, 3.2~fb$^{-1}$)}
 
-\begin{table*}[htbp]
+\begin{table*}
 \footnotesize
-	\centering
-		\begin{tabular}{ | l || l | l | l || l | l | l || l | }
+ \centering
+  \begin{tabular}{ | l || l | l | l || l | l | l || l | }
 \hline
-% Rivet, MadAnalysis 5 and CheckMATE2 benchmarking results & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-% arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-% Gluino mass 1600 - N1 mass 0 & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-% Rivet default (with efficiencies and smearing); MadAnalysis5 default; CheckMATE2 default & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
- % & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-                  &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5} &   {\bf CheckMATE}   \\ \hline
-
-Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff &   tot.eff   \\ \hline \hline
+    &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5} &   {\bf CheckMATE}   \\ \hline
+  Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff &   tot.eff   \\ \hline \hline
 {\bf 2jl cut-flow}                  & 31250 & 1 & - & 31250 & 1 & - & \   \\ \hline
 Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & \   \\ \hline
 Njet              & 28592 & 0.91 & 1 & 28625 & 0.92 & 1 & \   \\ \hline
@@ -180,6 +236,26 @@ Dphi\_min(j,MET)   & 17297 & 0.55 & 0.6 & 17301 & 0.55 & 0.6 & \   \\ \hline
 pT2               & 17067 & 0.55 & 0.99 & 17042 & 0.55 & 0.99 & \   \\ \hline
 MET/sqrtHT        & 5083 & 0.16 & 0.3 & 5098 & 0.16 & 0.3 & \   \\ \hline
 Pass m\_eff(incl)  & 4861 & 0.16 & 0.96 & 4889 & 0.16 & 0.96 & \   \\ \hline
+		\end{tabular}
+ \caption{Number of events surviving each selection, total and relative
+  selection efficiencies as obtained with Rivet and MadAnalysis 5 for the dijet
+  signal regions of the multijet+missing energy ATLAS analysis of
+  Ref.~\cite{Aaboud:2016zdn}. Partly available Checkmate results for the total
+  efficiencies are also indicated.}
+	\label{tab:1605.03814-2j}
+\end{table*}
+
+In the analysis of Ref.~\cite{Aaboud:2016zdn}, the ATLAS collaboration targets
+the production of the strongly-interacting superpartners of the Standard Model
+QCD partons, followed by their decay into jets and missing energy carried by
+neutralinos. 3.2~fb$^{-1}$ of proton-proton LHC collisions at a center-of-mass
+energy of 13~TeV are analyzed.
+
+\begin{table*}
+\begin{tabular}{ | l || l | l | l || l | l | l || l | }
+\hline
+    &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5} &   {\bf CheckMATE}   \\ \hline
+  Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff &   tot.eff   \\ \hline \hline
 \hline
 {\bf 4jt cut-flow} & 31250 & 1 & - & 31250 & 1 & - & 1  \\ \hline
 Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & 0.91  \\ \hline
@@ -220,26 +296,81 @@ pT4               & 8135 & 0.26 & 0.96 & 8217 & 0.26 & 0.96 & \   \\ \hline
 Aplanarity        & 6365 & 0.2 & 0.78 & 6307 & 0.2 & 0.77 & \   \\ \hline
 MET/m\_eff(Nj)     & 3900 & 0.12 & 0.61 & 3839 & 0.12 & 0.61 & \   \\ \hline
 m\_eff(incl)       & 3715 & 0.12 & 0.95 & 3672 & 0.12 & 0.96 & \   \\ \hline
-
-		\end{tabular}
-	\caption{1605.03814 cut flow}
-	\label{tab:1605.03814}
+ \end{tabular}
+ \caption{Same as in Table~\ref{tab:1605.03814-2j} but foe the signal regions
+  targeting final states containing four, five and six jets.}
+	\label{tab:1605.03814-nj}
 \end{table*}
 
-\subsection{arxiv:1704.03848 - Monophoton - ATLAS - 13 TeV}
-Brief description of the ATLAS analysis Monophoton at 13 TeV (arxiv:1704.03848).
-Results are reported in table~\ref{tab:1704.03848}.
+The analysis focuses on jets reconstructed by means of the anti-$k_T$
+algorithm~\cite{Cacciari:2008gp} with a radius parameter set to $R=0.4$, with
+a transverse momentum larger than 20~GeV and a pseudorapidity $|\eta|<2.8$.
+Events featuring loosely reconstructed electrons and muons are vetoed.
+Event preselection requires a significant amount of missing energy,
+$\slashed{E}_T > 200$~GeV and the transverse-momentum of the leading jet is
+imposed to be larger than 200~GeV and 300~GeV if two or more than two jets are
+reconstructed, respectively.
 
-\begin{table*}[htbp]
-\footnotesize
-	\centering
-		\begin{tabular}{ | l || l | l | l || l | l | l | }
+The analysis is then divided into seven signal regions focusing on different jet
+multiplicities (from 2 to 6) with different transverse-momentum thresholds. The
+missing transverse momentum is then enforced to be well separated from the
+leading reconstructed jets, and its significance is constrained for events
+featuring only two jets. For cases where at least four jets are reconstructed,
+additional selections on the aplanarity variable~\cite{Chen:2011ah} and the
+effective mass, {\it i.e} the scalar sum of the transverse momenta of the
+reconstructed and the missing transverse energy.
+
+More information of the MadAnalysis 5 implementation of this analysis can be
+found in Refs.~\cite{Banerjee:2017wxi,ma5-1605.03814}. The comparison of
+preedictions for the cutflows as obtained with MadAnalysis 5 and Rivet are
+reported in Table~\ref{tab:1605.03814-2j} and Table~\ref{tab:1605.03814-nj} for
+all seven signal regions. The tables include the total number of events
+surviving each selection, the associated cut efficiency and the total efficiency
+evaluated with respect to the initial number of events. Partially available
+Checkmate results are also indicated for what concern the total efficiencies and
+for a few signal regions.
+
+An excellent agreement between the three codes has been obtained.
+
+\subsection{An ATLAS search for dark matter in the monophoton final state
+  (13~TeV,  36.1~fb$^{-1}$)}
+
+In the analysis of Ref.~\cite{Aaboud:2017dor}, the ATLAS collaboration has
+searched for dark matter when it is produced in association with a very
+energetic photon. The search results have been reinterpreted in dark matter
+simplified scenarios in which a pair of dark matter particles is produced in
+association with a photon arising from initial state radiation. 36.1~fb$^{-1}$
+of proton-proton LHC collisions at a center-of-mass energy have been analyzed.
+
+The analysis requires the presence of at least one tightly-isolated photon with
+a transverse energy $E_T > 150$~GeV and with a pseudorapidity satisfying
+$|\eta| < 2.37$, the pseudorapidity region $1.37 < |\eta| < 2.37$ being
+excluded. Events featuring loose eletrons and muons and more than one jets with
+a transverse momentum larger than 30~GeV and a pseudorapidity $|\eta|<4.5$ are
+vetoed. As in the previous analysis, jets are reconstructed by means of the
+anti-$k_T$ algorithm~\cite{Cacciari:2008gp}  and a radius parameter set to
+$R=0.4$. In addition, event selection requires a missing transverse energy
+significance larger than 8.5~GeV$^{1/2}$, and the missing transverse momentum
+has top be well separated from the photon and the jet (for events featuring one
+reconstructed jet).
+
+Five signal regions are defined according to different requirements on the
+amount of missing transverse energy, namely three inclusive regions and two
+non-overlapping exclusive regions.
+
+More information on the MadAnalysis 5 implementation of this analysis can be
+found in Ref.~\cite{inspire_monophoton}. In Table~\ref{tab:1704.03848}, we
+compare the total number of events surviving each selection, the associated cut
+efficiency and the total efficiency evaluated with respect to the initial number
+of events as obtained with MadAnalysis 5 and Rivet. Whilst a fair agreement is
+obtained between two codes, differences of 5\%-10\% are observed for a cuople of
+cuts. This can be traced back to the missing energy modeling that is complicated
+to reproduce.
+
+\begin{table*}
+ \centering
+  \begin{tabular}{ | l || l | l | l || l | l | l | }
 \hline
-% Rivet, MadAnalysis 5 and CheckMATE2 benchmarking results & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-% arxiv:1605.03814 - Jets+MET - ATLAS - 13 TeV & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-% Gluino mass 1600 - N1 mass 0 & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
-% Rivet default (with efficiencies and smearing); MadAnalysis5 default; CheckMATE2 default & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
- % & \  & \  & \  & \  & \  & \  & \  & \  \\ \hline
                   &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5}    \\ \hline
 
 Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff    \\ \hline \hline
@@ -253,21 +384,101 @@ Pass $\delta\phi$(gamma,MET) $>$ 0.4 &   	597.5	& 0.50	& 1.00	& 596	& 0.50 & 	0.
 Pass MET/sqrt(SET) $>$ 8.5   &   	538.2	& 0.45	& 0.90	& -	  &  -   &     	     \\ \hline
 Pass Jet veto              &   	476.8	& 0.40	& 0.89	& 461	& 0.38 & 	0.77     \\ \hline
 Pass Lepton veto           &   	475.5	& 0.40	& 1.00	& 460	& 0.38 & 	1.00     \\ \hline
-
-		\end{tabular}
-	\caption{1704.03848 cut flow}
-	\label{tab:1704.03848}
+  \end{tabular}
+ \caption{Number of events surviving each selection, total and relative
+  selection efficiencies as obtained with Rivet and MadAnalysis 5 for the SRI1
+  signal region of the monophoton ATLAS analysis of Ref.~\cite{Aaboud:2017dor}.}
+ \label{tab:1704.03848}
 \end{table*}
 
 
-\subsection{CMS-SUS-16-039 - 3 leptons + MET - CMS - 13 TeV}
-Brief description of the CMS analysis 3 leptons + MET at 13 TeV (CMS-SUS-16-039).
+\subsection{A CMS search for electroweakinos in multileptonic final states
+  (13~TeV, 35.9~fb$^{-1}$)}
 
-\subsection{arxiv:1706.04402 - 1 lepton + MET + Jets (>=1b) - CMS - 13 TeV} (topness variable?)
-Brief description of the CMS analysis 1 lepton + MET + Jets ($>=1b$) (topness variable) at 13 TeV (arxiv:1706.04402).
+In the analysis of Ref.~\cite{Sirunyan:2017lae}, the CMS collaboration
+investigates potential hints for electroweakinos, when the latter decays into
+leptons and missing energy carried away by neutralinos. The search analyzes
+35.9~fb$^{-1}$ of LHC proton-proton collisions at a center-of-mass energy of
+13~TeV.
+
+The CMS search preselects events featuring at least two isolated leptons
+(electrons or muons) with soft transverse-momentum rquirements or a single
+lepton with harder $p_T$ requirements, which allows one to get sensitivity to
+topologies featuring hadronic taus. The analysis selection feature final states
+with eother two, three or four leptons and little hadronic activity.
+
+The analysis is subdivided into numerous signals regions and a small number of
+aggregated signal regions.
+
+A first class of signal regions requires a same-sign
+dilepton where each lepton have a transverse momentum larger than 25~GeV
+(20~GeV) for the leading electron (muon) and than 15~GeV (10~GeV) for the
+subleading electron (muon). The amount of missing energy is constrained to be
+larger than 60~GeV, and events compatible with a $WZ$ event involving a looser
+lepton and an opposite-sign dilepton compatible with a $Z$-boson or a low-mass
+resonance are vetoed. Events are allowed to feature at most one jet with
+a transverse momentum larger than 40~GeV and a pseudorapidity $|\eta|<2.4$,
+where jets are reconstructed by means of the anti-$k_T$
+algorithm~\cite{Cacciari:2008gp} with a radius parameter set to $R=0.4$.
+Additional selections on the missing energy, the transverse mass evaluated from
+the transverse momentum of each lepton and the missing momentum and the $p_T$ of
+the dilepton system are imposed and allow for the definition of 30 independent
+signal regions.
+
+Events featuring three or more leptons are required to contain more than 50~GeV
+of missing energy and at most two hadronic tau candidates. 123 signal regions
+are defined, depending on the number of leptons, their respective flavors, the
+their elcetric charge, amount of missing energy, the value of the $m_{T2}$
+variable~\cite{Lester:1999tx} and the invariant mass of the possible lepton
+pairs.
+
+The same obswervables are then used to define 8 aggregated signal regions.
+
+The analysis has been implemented in MadAnalysis 5 but the lack of
+information from CMS renders its validation complicated.
+
+
+\subsection{A CMS search for top squarks in single leptonic events (13~TeV,
+  35.9~fb$^{-1}$)}
+
+In the analysis of Ref.~\cite{Sirunyan:2017xse}, the CMS collaboration studies
+potential hints for the production of a pair of top squarks that each decays
+into a top quark and missing energy carried away by a neutralino. This search
+focuses on top-antitop system further decaying semi-leptonically, the lepton
+being either a muon or an electron, and investigate 35.9~fb$^{-1}$ of LHC
+proton-proton collisions at a center-of-mass of 13~TeV.
+
+The analysis requires the presence of a single isolated lepton with a transverse
+momentum larger than 20~GeV and a pseudorapidity satisfying $|\eta| < 1.442$ and
+2.4 for electrons and muons respectively. Jets are reconstructed by means of the
+anti-$k_T$ algorithm~\cite{Cacciari:2008gp} with a radius parameter set to
+$R=0.4$, and only jets with a transverse momentum larger than 30~GeV and a
+pseudorapidity $|\eta| < 2.4$ are considered. The event selection asls for the
+presence of at least two jets, with at least one of the reconstructed
+jets is required to be $b$-tagged. Further requirements are then imposed on the
+transverse mass of the lepton-missing energy system and a veto is iplemented so
+that events featuring a second loosely isolated leptons are rejected. Finally,
+the missing energy is imposed to be well separated in azimuth from the two
+leading jets.
+
+The analysis defines to categories of signal regions. The first of these
+categories characterize events relatively to the number of jets, the missing
+transverse energy, the invariant mass of the lepton-leading $b$-jet system and
+the topness variable~\cite{topness}. The second class of signal regions are
+design to select featuring a hard initial-state radiation jet that boosted the
+supersymmetric system. THe events are required to feature at least 5 jets, the
+leading jet being a light jet, and the lepton cannot have a transverse momentum
+greater than 150~GeV and be to far from the missing transverse momentum. The
+two leading jets are finally imposed to be quite separated from the missing
+momentum, and the events are categorized according to the amount of missing
+energy.
+
+Implementations of this analysis in the recasting codes is on-going. 
+
+
 
 \section*{CONCLUSIONS}
-We are cool.
+We are uber-cool.
 
 \section*{ACKNOWLEDGEMENTS}
 We acknowledge the acknowledgements.
