@@ -33,6 +33,8 @@ internal object block = object, space, object name, EOL,
                         indent, "take", space, internal input, EOL,
 	                {object optional statement}
 
+object = "object" | "collection" | "variable"
+
 object optional statement = apply statement | cut statement
 
 internal input = "Particles" |  defined object
