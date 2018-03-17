@@ -56,9 +56,8 @@ $^{PG}$ IRFU, CEA, Universit\'e Paris-Saclay, Gif-sur-Yvette\\
 \maketitle
 
 \begin{abstract}
-The scope of this report, therefore, is to document the advancements obtained so far on the recasting
-activities and attempt a first benchmark to compare different tools to reproduce several ATLAS and
-CMS analysis results.
+The scope of this report is to document the advancements obtained on the recasting
+activities and provide a first benchmark to compare different tools in reproducing ATLAS and CMS analysis results.
 \end{abstract}
 
 \section{Introduction}
@@ -66,12 +65,14 @@ CMS analysis results.
 Searches for new physics constitute a basic ingredient of the LHC physics program.
 Their large number and variety pose severe challenges to both the experimental and theory communities.
 In fact, hundreds of searches are performed by different collaborations, several final states are used,
-new ideas on how to probe new models and non-trivial signatures and improve the sensitivity of existing searches constantly emerge.
+while new ideas 
+% on how 
+to probe new models and non-trivial signatures and improve the sensitivity of existing searches constantly emerge.
 The ultimate goal of this effort is to discover new physics if such
 exists within the reach of the LHC, and to test the widest possible range of hypothetical new physics models.
 
-A typical analysis defines quantities that aid in classifying events as signal
-or background. This for example includes properties of analysis objects such as
+A typical analysis defines quantities to classify events as signal
+or background. They include properties of analysis objects such as
 jets, electrons, muons, or global event variables such as object multiplicities,
 transverse momenta or transverse masses.
 An analysis can be very complex and feature many intricate definitions of object and event
@@ -118,16 +119,21 @@ Several discussions and progresses have been made, but the proposal is not yet f
 
 % In the following sections we shall detail the use cases
 % and design requirements of such an accord, and the general pros and cons of several approaches.
-The scope of this report, is to document the advancements obtained so far
-on the recasting activities, and the attempt for a first benchmark to compare different tools
-to reproduce several ATLAS and CMS analysis results provided through HEPDATA~\cite{Maguire:2017ypu}.
-To trust the reliability of this recasting approach, we realize feasibility studies of the implementation and portability of complicated multivariate techniques
-(boosted
-decision trees, neutral networks, {\it etc.}) into the recasting frameworks featuring different approaches like detector smearing (Delphes~\cite{deFavereau:2013fsa}) results and simple object smearing.
+
+The scope of this report is to document the advancements obtained on the recasting
+activities and provide a first benchmark to compare different tools in reproducing ATLAS and CMS analysis results
+% The scope of this report, is to document the advancements obtained so far
+% on the recasting activities, and the attempt for a first benchmark to compare different tools
+% to reproduce several ATLAS and CMS analysis results 
+provided through HEPDATA~\cite{Maguire:2017ypu}.
+To test the reliability of this recasting approach, we realize feasibility studies of the implementation and portability of complicated multivariate techniques
+(boosted decision trees, neutral networks, {\it etc.}) into the recasting frameworks featuring different approaches 
+like detector smearing (Delphes~\cite{deFavereau:2013fsa}) results and simple object smearing.
 
 Further improvements in the presentation of the results and their recastability
-will be to provide correlations among the signal systematics, as well as to
-address the possibility to provide a few key observables unfolded. Finally, it would be interesting in the future to try using particle-level measurements to constrain models.
+will include correlations among the signal systematics, 
+as well as the possibility to provide unfolded distributions for key observables.
+Finally, in the future it might become possible to directly use particle-level measurements to constrain new models.
 
 % \section{Formats}
 % Object efficiency tables : which format (HEPDATA?)
@@ -137,24 +143,23 @@ address the possibility to provide a few key observables unfolded. Finally, it w
 The idea behind the exercise described in this section is the implementation of
 LHC analyses of increasing complexity, both in the language-independent format
 (Analysis Description Format, LHADA Proposal) and frameworks like
-CheckMate~\cite{checkmate},
+CheckMate~\cite{Drees:2013wra,Cacciari:2005hq},
 MadAnalysis~\cite{Conte:2012fm,Conte:2014zja,Dumont:2014tja}
-and Rivet~\cite{rivet}, followed by a comparison of the results.
+and Rivet~\cite{Waugh:2006ip,Buckley:2010ar}, followed by a comparison of the results.
 We choose analyses of ATLAS and CMS which have a detailed cutflow and detector effects provided in some form.
 % , and possibly is already been implemented in the recasting codes CheckMate/MadAnalysis/Rivet/ATOM.
-In the future it will be beneficial to implement the same analyses in the LHADA format and use the dedicated parsers to convert the analysis into recasting codes.
-Once analysis implementations are available, we try to reproduce new physics
-interpretations presented in the original experimental research paper,
+In the future it might be beneficial to use dedicated parsers to convert the analysis into different recasting codes.
+Once the analysis are available in the needed format, we attempt to reproduce the new physics
+interpretations presented in the original experimental research papers,
 validating in this way our reimplementations.
-A further step consists in the recasting of the analysis within other new
+A further step consists in the recasting of the analyses within diFFerent new
 physics contexts and compare the results among the different frameworks.
 A sketch of the recasting exercise workflow is presented in Fig.~\ref{fig:exercise}.
 
-Aside the current scope of the exercise, it would be interesting to check how the performance from Delphes are general and not analysis-specific, since this
-last case is usually the preferred use.
+Aside the current scope of the exercise, it is interesting to check how the performance of the Delphes simulation behave across different phase spaces, since they are generally referred to as analysis-spedfic.
 
 
-\section{How to validate the analyses}
+% \section{Analysis validation}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.65\textwidth]{figures/lhada_benchmarking_excersise.png}
@@ -165,7 +170,7 @@ last case is usually the preferred use.
 \end{figure}
 
 
-\subsection{The analysis frameworks and tools}
+\subsection{Analysis frameworks and tools}
 In this section we describe the analysis frameworks and tools used for the comparison and benchmarking
 % \subsection{ATOM}
 % Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
