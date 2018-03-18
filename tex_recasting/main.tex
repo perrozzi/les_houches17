@@ -176,10 +176,10 @@ In this section we describe the analysis frameworks and tools used for the compa
 % Atom is a general purpose framework for reinterpreting existing experimental analyses and designing new ones. Originally started as a fork of Rivet, Atom includes the possibility of describing detector effects by using transfer functions from truth-level objects to detector objects. In addition to providing a recasting framework, Atom emphasizes checking the validity of the extrapolations intrinsic in recasting a result from one BSM model to another. This is achieved via a flexible system warning the user of various conditions invalidating the results. On top of providing a database of existing BSM ATLAS and CMS analyses, LHC run I and II detector descriptions, while still being fully compatible with all Rivet analyses, Atom delivers tools for easily implementing new analyses, including an automatic validation system.
 
 \subsubsection{CheckMate}
-CheckMATE~\cite{checkmate} takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is `excluded' or `allowed' after
+CheckMATE~\cite{Drees:2013wra,Cacciari:2005hq} takes simulated event files in .hep or .hepmc for any model as input and simply returns if the underlying model is `excluded' or `allowed' after
 performing a detector simulation and testing various implemented analyses. The embedded AnalysisManager allows for the embedding of additional current and
 prospective future LHC results from ATLAS and CMS which have not yet been implemented.
-Detector effects are modeled by Delphes with a tune containing efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 of the code adds the possibility of using Pythia 8~\cite{pythia8} to
+Detector effects are modeled by Delphes with a tune containing efficiency functions for lepton reconstruction and flavour tagging. The soon-to-be published version 2.0 of the code adds the possibility of using Pythia 8~\cite{Sjostrand:2007gs} to
 generate supersymmetric events on-the-fly or to shower provided Les Houches
 event files for any model. Currently, the collaboration is working on an extension to enable the on-the-fly simulation of events for any model.
 
@@ -201,12 +201,12 @@ simulation. For each implemented analysis, a detailed validation note is
 provided and the public analysis database follows an open-source policy. Only
 contributed codes provided with a detailed validation note are published, and
 they are moreover citable via Inspire. The framework being integrated within
-MadGraph~\cite{Alwall:2014hca}, it provides a full recast chain linking a model
+MadGraph5\_aMC@NLO~\cite{Alwall:2014hca}, it provides a full recast chain linking a model
 and its associated signatures to limit setting.
 
 \subsubsection{Rivet}
 Originally developed as a toolkit for the validation of Monte Carlo event
-generators, Rivet~\cite{rivet} (Robust Independent Validation of Experiment and
+generators, Rivet~\cite{Waugh:2006ip,Buckley:2010ar} (Robust Independent Validation of Experiment and
 Theory) has become a standard for documenting (unfolded) Standard Model (SM)
 measurements. The top and Higgs physics working groups of all LHC experiments
 are increasingly providing Rivet routines for their analyses. Rivet analyses are
@@ -232,7 +232,7 @@ state with jets and missing energy (13 TeV, 3.2~fb$^{-1}$)}
  \centering
   \begin{tabular}{ | l || l | l | l || l | l | l || l | }
 \hline
-    &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5} &   {\bf CheckMATE}   \\ \hline
+    &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis 5} &   {\bf CheckMATE}   \\ \hline
   Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff &   tot.eff   \\ \hline \hline
 {\bf 2jl cut-flow}                  & 31250 & 1 & - & 31250 & 1 & - & \   \\ \hline
 Pre-sel+MET+pT1   & 28592 & 0.91 & 0.91 & 28626 & 0.92 & 0.92 & \   \\ \hline
@@ -275,7 +275,7 @@ energy of 13~TeV are analyzed.
 \begin{table*}
 \begin{tabular}{ | l || l | l | l || l | l | l || l | }
 \hline
-    &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5} &   {\bf CheckMATE}   \\ \hline
+    &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis 5} &   {\bf CheckMATE}   \\ \hline
   Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff &   tot.eff   \\ \hline \hline
 \hline
 {\bf 4jt cut-flow} & 31250 & 1 & - & 31250 & 1 & - & 1  \\ \hline
@@ -318,7 +318,7 @@ Aplanarity        & 6365 & 0.2 & 0.78 & 6307 & 0.2 & 0.77 & \   \\ \hline
 MET/m\_eff(Nj)     & 3900 & 0.12 & 0.61 & 3839 & 0.12 & 0.61 & \   \\ \hline
 m\_eff(incl)       & 3715 & 0.12 & 0.95 & 3672 & 0.12 & 0.96 & \   \\ \hline
  \end{tabular}
- \caption{Same as in Table~\ref{tab:1605.03814-2j} but foe the signal regions
+ \caption{Same as in Table~\ref{tab:1605.03814-2j} but for the signal regions
   targeting final states containing four, five and six jets.}
 	\label{tab:1605.03814-nj}
 \end{table*}
@@ -337,13 +337,15 @@ multiplicities (from 2 to 6) with different transverse-momentum thresholds. The
 missing transverse momentum is then enforced to be well separated from the
 leading reconstructed jets, and its significance is constrained for events
 featuring only two jets. For cases where at least four jets are reconstructed,
-additional selections on the aplanarity variable~\cite{Chen:2011ah} and the
-effective mass, {\it i.e} the scalar sum of the transverse momenta of the
+additional selections on the aplanarity variable
+% ~\cite{Chen:2011ah} 
+and the effective mass, {\it i.e} the scalar sum of the transverse momenta of the
 reconstructed and the missing transverse energy.
 
-More information of the MadAnalysis 5 implementation of this analysis can be
-found in Refs.~\cite{Banerjee:2017wxi,ma5-1605.03814}. The comparison of
-preedictions for the cutflows as obtained with MadAnalysis 5 and Rivet are
+% More information of the MadAnalysis 5 implementation of this analysis can be
+% found in Refs.~\cite{Banerjee:2017wxi,ma5-1605.03814}. 
+The comparison of
+predictions for the cutflows as obtained with MadAnalysis 5 and Rivet are
 reported in Table~\ref{tab:1605.03814-2j} and Table~\ref{tab:1605.03814-nj} for
 all seven signal regions. The tables include the total number of events
 surviving each selection, the associated cut efficiency and the total efficiency
@@ -379,8 +381,9 @@ Five signal regions are defined according to different requirements on the
 amount of missing transverse energy, namely three inclusive regions and two
 non-overlapping exclusive regions.
 
-More information on the MadAnalysis 5 implementation of this analysis can be
-found in Ref.~\cite{inspire_monophoton}. In Table~\ref{tab:1704.03848}, we
+% More information on the MadAnalysis 5 implementation of this analysis can be
+% found in Ref.~\cite{inspire_monophoton}. 
+In Table~\ref{tab:1704.03848}, we
 compare the total number of events surviving each selection, the associated cut
 efficiency and the total efficiency evaluated with respect to the initial number
 of events as obtained with MadAnalysis 5 and Rivet. Whilst a fair agreement is
@@ -392,7 +395,7 @@ to reproduce.
  \centering
   \begin{tabular}{ | l || l | l | l || l | l | l | }
 \hline
-                  &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis5}    \\ \hline
+                  &  \multicolumn{3}{c||}{\bf Rivet} & \multicolumn{3}{c||}{\bf MadAnalysis 5}    \\ \hline
 
 Description       & \#evt & tot.eff & rel.eff & \#evt & tot.eff & rel.eff    \\ \hline \hline
 
@@ -453,7 +456,7 @@ their elcetric charge, amount of missing energy, the value of the $m_{T2}$
 variable~\cite{Lester:1999tx} and the invariant mass of the possible lepton
 pairs.
 
-The same obswervables are then used to define 8 aggregated signal regions.
+The same observables are then used to define 8 aggregated signal regions.
 
 The analysis has been implemented in MadAnalysis 5 but the lack of
 information from CMS renders its validation complicated.
@@ -485,9 +488,9 @@ leading jets.
 The analysis defines to categories of signal regions. The first of these
 categories characterize events relatively to the number of jets, the missing
 transverse energy, the invariant mass of the lepton-leading $b$-jet system and
-the topness variable~\cite{topness}. The second class of signal regions are
+the topness variable~\cite{Graesser:2012qy}. The second class of signal regions are
 design to select featuring a hard initial-state radiation jet that boosted the
-supersymmetric system. THe events are required to feature at least 5 jets, the
+supersymmetric system. The events are required to feature at least 5 jets, the
 leading jet being a light jet, and the lepton cannot have a transverse momentum
 greater than 150~GeV and be to far from the missing transverse momentum. The
 two leading jets are finally imposed to be quite separated from the missing
@@ -499,10 +502,10 @@ Implementations of this analysis in the recasting codes is on-going.
 
 
 \section*{CONCLUSIONS}
-We are uber-cool.
+% We are uber-cool.
 
-\section*{ACKNOWLEDGEMENTS}
-We acknowledge the acknowledgements.
+% \section*{ACKNOWLEDGEMENTS}
+% We acknowledge the acknowledgements.
 
 \bibliography{sample_bib}
 

@@ -1,0 +1,129 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
+
+\bibitem{Brooijmans:2012yi}
+G.~Brooijmans {\em et.~al.}, in {\em {Proceedings, 7th Les Houches Workshop on
+  Physics at TeV Colliders: Les Houches, France, May 30-June 17, 2011}},
+  pp.~221--463, 2012.
+\newblock \href{http://xxx.lanl.gov/abs/1203.1488}{{\tt 1203.1488}}.
+
+\bibitem{Kraml:2012sg}
+S.~Kraml {\em et.~al.}, {\em Eur. Phys. J.} {\bf C72} (2012) 1976,
+  [\href{http://xxx.lanl.gov/abs/1203.2489}{{\tt 1203.2489}}].
+
+\bibitem{Brooijmans:2016vro}
+G.~Brooijmans {\em et.~al.}, in {\em {9th Les Houches Workshop on Physics at
+  TeV Colliders (PhysTeV 2015) Les Houches, France, June 1-19, 2015}}, 2016.
+\newblock \href{http://xxx.lanl.gov/abs/1605.02684}{{\tt 1605.02684}}.
+
+\bibitem{Boos:2001cv}
+E.~Boos {\em et.~al.}, in {\em {Physics at TeV colliders. Proceedings, Euro
+  Summer School, Les Houches, France, May 21-June 1, 2001}}, 2001.
+\newblock \href{http://xxx.lanl.gov/abs/hep-ph/0109068}{{\tt hep-ph/0109068}}.
+
+\bibitem{Alwall:2006yp}
+J.~Alwall {\em et.~al.}, {\em Comput. Phys. Commun.} {\bf 176} (2007) 300--304,
+  [\href{http://xxx.lanl.gov/abs/hep-ph/0609017}{{\tt hep-ph/0609017}}].
+
+\bibitem{Allanach:2008qq}
+B.~C. Allanach {\em et.~al.}, {\em Comput. Phys. Commun.} {\bf 180} (2009)
+  8--25, [\href{http://xxx.lanl.gov/abs/0801.0045}{{\tt 0801.0045}}].
+
+\bibitem{Skands:2003cj}
+P.~Z. Skands {\em et.~al.}, {\em JHEP} {\bf 07} (2004) 036,
+  [\href{http://xxx.lanl.gov/abs/hep-ph/0311123}{{\tt hep-ph/0311123}}].
+
+\bibitem{Collaboration:2242860}
+{\bf CMS} Collaboration Tech. Rep. CMS-NOTE-2017-001, CERN, Geneva, Jan, 2017.
+\newblock \url{https://cds.cern.ch/record/2242860}.
+
+\bibitem{recasting_atlas}
+L.~A. Heinrich and K.~S. Cranmer,, ``{Analysis Preservation and Systematic
+  Reinterpretation within the ATLAS Experiment}.''
+  \url{https://indico.cern.ch/event/567550/contributions/2638695/}.
+
+\bibitem{Maguire:2017ypu}
+E.~Maguire, L.~Heinrich, and G.~Watt, {\em J. Phys. Conf. Ser.} {\bf 898}
+  (2017), no.~10 102006, [\href{http://xxx.lanl.gov/abs/1704.05473}{{\tt
+  1704.05473}}].
+
+\bibitem{deFavereau:2013fsa}
+J.~de~Favereau, C.~Delaere, P.~Demin, A.~Giammanco, V.~Lemaître, A.~Mertens,
+  and M.~Selvaggi,, {\bf DELPHES 3} Collaboration {\em JHEP} {\bf 02} (2014)
+  057, [\href{http://xxx.lanl.gov/abs/1307.6346}{{\tt 1307.6346}}].
+
+\bibitem{Drees:2013wra}
+M.~Drees, H.~Dreiner, D.~Schmeier, J.~Tattersall, and J.~S. Kim, {\em Comput.
+  Phys. Commun.} {\bf 187} (2015) 227--265,
+  [\href{http://xxx.lanl.gov/abs/1312.2591}{{\tt 1312.2591}}].
+
+\bibitem{Cacciari:2005hq}
+M.~Cacciari and G.~P. Salam, {\em Phys. Lett.} {\bf B641} (2006) 57--61,
+  [\href{http://xxx.lanl.gov/abs/hep-ph/0512210}{{\tt hep-ph/0512210}}].
+
+\bibitem{Conte:2012fm}
+E.~Conte, B.~Fuks, and G.~Serret, {\em Comput. Phys. Commun.} {\bf 184} (2013)
+  222--256, [\href{http://xxx.lanl.gov/abs/1206.1599}{{\tt 1206.1599}}].
+
+\bibitem{Conte:2014zja}
+E.~Conte, B.~Dumont, B.~Fuks, and C.~Wymant, {\em Eur. Phys. J.} {\bf C74}
+  (2014), no.~10 3103, [\href{http://xxx.lanl.gov/abs/1405.3982}{{\tt
+  1405.3982}}].
+
+\bibitem{Dumont:2014tja}
+B.~Dumont, B.~Fuks, S.~Kraml, S.~Bein, G.~Chalons, E.~Conte, S.~Kulkarni,
+  D.~Sengupta, and C.~Wymant, {\em Eur. Phys. J.} {\bf C75} (2015), no.~2 56,
+  [\href{http://xxx.lanl.gov/abs/1407.3278}{{\tt 1407.3278}}].
+
+\bibitem{Waugh:2006ip}
+B.~M. Waugh, H.~Jung, A.~Buckley, L.~Lonnblad, J.~M. Butterworth, and E.~Nurse,
+  in {\em {15th International Conference on Computing in High Energy and
+  Nuclear Physics (CHEP 2006) Mumbai, Maharashtra, India, February 13-17,
+  2006}}, 2006.
+\newblock \href{http://xxx.lanl.gov/abs/hep-ph/0605034}{{\tt hep-ph/0605034}}.
+
+\bibitem{Buckley:2010ar}
+A.~Buckley, J.~Butterworth, L.~Lonnblad, D.~Grellscheid, H.~Hoeth, J.~Monk,
+  H.~Schulz, and F.~Siegert, {\em Comput. Phys. Commun.} {\bf 184} (2013)
+  2803--2819, [\href{http://xxx.lanl.gov/abs/1003.0694}{{\tt 1003.0694}}].
+
+\bibitem{Sjostrand:2007gs}
+T.~Sjostrand, S.~Mrenna, and P.~Z. Skands, {\em Comput. Phys. Commun.} {\bf
+  178} (2008) 852--867, [\href{http://xxx.lanl.gov/abs/0710.3820}{{\tt
+  0710.3820}}].
+
+\bibitem{Alwall:2014hca}
+J.~Alwall, R.~Frederix, S.~Frixione, V.~Hirschi, F.~Maltoni, O.~Mattelaer,
+  H.~S. Shao, T.~Stelzer, P.~Torrielli, and M.~Zaro, {\em JHEP} {\bf 07} (2014)
+  079, [\href{http://xxx.lanl.gov/abs/1405.0301}{{\tt 1405.0301}}].
+
+\bibitem{Aaboud:2016zdn}
+M.~Aaboud {\em et.~al.},, {\bf ATLAS} Collaboration {\em Eur. Phys. J.} {\bf
+  C76} (2016), no.~7 392, [\href{http://xxx.lanl.gov/abs/1605.03814}{{\tt
+  1605.03814}}].
+
+\bibitem{Cacciari:2008gp}
+M.~Cacciari, G.~P. Salam, and G.~Soyez, {\em JHEP} {\bf 04} (2008) 063,
+  [\href{http://xxx.lanl.gov/abs/0802.1189}{{\tt 0802.1189}}].
+
+\bibitem{Aaboud:2017dor}
+M.~Aaboud {\em et.~al.},, {\bf ATLAS} Collaboration {\em Eur. Phys. J.} {\bf
+  C77} (2017), no.~6 393, [\href{http://xxx.lanl.gov/abs/1704.03848}{{\tt
+  1704.03848}}].
+
+\bibitem{Sirunyan:2017lae}
+A.~M. Sirunyan {\em et.~al.},, {\bf CMS} Collaboration
+  \href{http://xxx.lanl.gov/abs/1709.05406}{{\tt 1709.05406}}.
+
+\bibitem{Lester:1999tx}
+C.~G. Lester and D.~J. Summers, {\em Phys. Lett.} {\bf B463} (1999) 99--103,
+  [\href{http://xxx.lanl.gov/abs/hep-ph/9906349}{{\tt hep-ph/9906349}}].
+
+\bibitem{Sirunyan:2017xse}
+A.~M. Sirunyan {\em et.~al.},, {\bf CMS} Collaboration {\em JHEP} {\bf 10}
+  (2017) 019, [\href{http://xxx.lanl.gov/abs/1706.04402}{{\tt 1706.04402}}].
+
+\bibitem{Graesser:2012qy}
+M.~L. Graesser and J.~Shelton, {\em Phys. Rev. Lett.} {\bf 111} (2013), no.~12
+  121802, [\href{http://xxx.lanl.gov/abs/1212.4495}{{\tt 1212.4495}}].
+
+\end{thebibliography}\endgroup
