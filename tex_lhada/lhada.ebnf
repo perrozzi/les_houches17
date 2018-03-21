@@ -42,11 +42,10 @@ internal input = "Particles" |  defined object
 defined object = identifier (* the object must be defined in an object block in
                                the preceding text *)
 
-external object block = object, space, object name, EOL,
-                        indent, "take", space, "external", EOL,
-                        "uid", uid
+external object name = identifier
 
-uid = identifier
+external object block = object, space, object name, EOL,
+                        indent, "take", space, "external", external object name, EOL,
 
 apply statement = indent, "apply", space, function call
 

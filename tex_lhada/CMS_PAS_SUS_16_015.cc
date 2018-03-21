@@ -226,6 +226,16 @@ namespace Rivet {
        const MissingMomentum metProj = applyProjection<MissingMomentum>(event, "met");
        met = metProj.missingMomentum();
        ht = scalar_pt_sum(jets);
+
+       cut_1j_loose_1();
+       cut_1j_loose_2();
+       cut_1j_medium_1();
+       cut_1j_medium_2();
+       cut_1j_medium_3();
+       cut_1j_medium_4();
+       cut_1j_medium_5();
+       cut_1j_medium_6();
+       cut_1j_medium_7();
     }
 
 
